@@ -16,16 +16,22 @@ FetchContent_MakeAvailable(sfml)
 add_executable(game_start 
     main.cpp 
     main/Application.cpp 
+    main/Application_default.cpp
+    main/Application_Update.cpp
     main/Application.hpp
+    main/GameStateMachine.hpp
     menu/menu.cpp 
     menu/menu.hpp
     menu/menu_key.cpp
     menu/menu_mouse.cpp
     menu/menu_default.cpp
+    menu/menuStateMachine.hpp
     typeface/type.cpp
     typeface/type.hpp
+    music/music.cpp
+    music/music.hpp
 )
 
-target_include_directories(game_start PRIVATE main menu typeface)
+target_include_directories(game_start PRIVATE main menu typeface music)
 target_compile_features(game_start PRIVATE cxx_std_20)
 target_link_libraries(game_start PRIVATE SFML::Graphics SFML::Audio)

@@ -1,18 +1,21 @@
-/* 
+/*
  *@ 文件 ： Application.hpp
  *@ 描述 ： 游戏主体框架的类声明
  *@ 作者 ： 小恐龙大魔王
  *@ 时间 ： 2026-2-1
-*/
+ */
 #pragma once
 #include <iostream>
 #include "SFML/Graphics.hpp"
-#include "SFML/Audio.hpp"
+#include "music.hpp"
 #include "menu.hpp"
+#include "GameStateMachine.hpp"
 
 class Application
 {
 public:
+    // 声明游戏状态机 (Game State Machine)
+    GameStateMachine c_gameState;
 
 private:
     // 创建窗口
@@ -25,6 +28,7 @@ private:
 
     // 创建菜单
     Menu c_menu;
+
 public:
     Application();
     bool IsRunning() const;
@@ -35,9 +39,13 @@ public:
 
 private:
     bool HandleEvent(const sf::Event::Closed &);
+    bool HandleEvent(const sf::Event::MouseButtonPressed & mouse);
     // 处理其余事件
     template <class T>
     bool HandleEvent(const T &) { return false; }
 
-    
+    void CreateDefaultWindow();
+    void CreateDefaultCamera();
+
+    void UpdateCamera();
 };

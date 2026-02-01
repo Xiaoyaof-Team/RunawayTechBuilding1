@@ -1,95 +1,101 @@
 /*
- *@ æ–‡ä»¶ ï¼š menu_default.cpp
- *@ æè¿° ï¼š èœå•ç•Œé¢çš„ç±»å­—ä½“èƒŒæ™¯ç­‰é¢„è®¾é…ç½®
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”ç‹
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼ş £º menu_default.cpp
+ *@ ÃèÊö £º ²Ëµ¥½çÃæµÄÀà×ÖÌå±³¾°µÈÔ¤ÉèÅäÖÃ
+ *@ ×÷Õß £º Ğ¡¿ÖÁú´óÄ§Íõ
+ *@ Ê±¼ä £º 2026-2-1
  */
 #include "menu.hpp"
 #include "type.hpp"
+#include <string>
 
-//SED: AIè¡¥å…¨ï¼Œåç»­éœ€è¦è°ƒæ•´
-void Menu::Menu_loadResources()
+// SED: AI²¹È«£¬ºóĞøĞèÒªµ÷Õû
+void Menu::Menu_loadResources(GameStateMachine &c_gameState)
 {
-    // åŠ è½½èƒŒæ™¯çº¹ç†
-    backgroundTexture.loadFromFile("game_main/menu/resources/background.png");
+    // ¼ÓÔØ±³¾°ÎÆÀí
+    backgroundTexture.loadFromFile("game_main/Picture/menu/background.png");
     backgroundSprite.setTexture(backgroundTexture);
 
-    // è®¾ç½®æ ‡é¢˜æ–‡æœ¬
-    titleText.setString("Runaway\nDUT353");
+    // ÉèÖÃ±êÌâÎÄ±¾
+    titleText.setString(L"ÌÓÀë\n×ÛÒ»353");
     titleText.setCharacterSize(72);
     titleText.setFillColor(sf::Color::White);
-    titleText.setPosition({0.f, 0.f}); // è®¾ç½®æ ‡é¢˜ä½ç½®
+    titleText.setPosition({0.f, 0.f}); // ÉèÖÃ±êÌâÎ»ÖÃ
 
-    // è®¾ç½®ä¸»èœå•é€‰é¡¹æ–‡æœ¬ä¸ä½ç½®
-    MainMenu_StartText.setString("Start Game");
+    // ÉèÖÃÖ÷²Ëµ¥Ñ¡ÏîÎÄ±¾ÓëÎ»ÖÃ
+    MainMenu_StartText.setString(L"¿ªÊ¼ÓÎÏ·");
     MainMenu_StartText.setCharacterSize(40);
     MainMenu_StartText.setFillColor(sf::Color::White);
     MainMenu_StartText.setPosition({60.f, 300.f});
 
-    MainMenu_SettingText.setString("Settings");
+    MainMenu_SettingText.setString(L"ÉèÖÃ");
     MainMenu_SettingText.setCharacterSize(40);
     MainMenu_SettingText.setFillColor(sf::Color::White);
     MainMenu_SettingText.setPosition({60.f, 400.f});
 
-    MainMenu_ExitText.setString("Exit");
+    MainMenu_ExitText.setString(L"ÍË³öÓÎÏ·");
     MainMenu_ExitText.setCharacterSize(40);
     MainMenu_ExitText.setFillColor(sf::Color::White);
     MainMenu_ExitText.setPosition({60.f, 500.f});
 
-    // è®¾ç½®è®¾ç½®èœå•é€‰é¡¹æ–‡æœ¬ä¸ä½ç½®
-    Setting_VolumeText.setString("Volume");
+    // ÉèÖÃÉèÖÃ²Ëµ¥Ñ¡ÏîÎÄ±¾ÓëÎ»ÖÃ
+    Setting_VolumeText.setString(L"ÒôÁ¿ : " + std::to_wstring(c_gameState.Volume) + L" %");
     Setting_VolumeText.setCharacterSize(30);
     Setting_VolumeText.setFillColor(sf::Color::White);
     Setting_VolumeText.setPosition({60.f, 250.f});
 
-    Setting_isFullScreenText.setString("Full Screen");
+    Setting_isFullScreenText.setString(L"ÏÔÊ¾ÉèÖÃ : " + c_gameState.is_FullScreen);
     Setting_isFullScreenText.setCharacterSize(30);
     Setting_isFullScreenText.setFillColor(sf::Color::White);
     Setting_isFullScreenText.setPosition({60.f, 320.f});
 
-    Setting_frameRateText.setString("Frame Rate Limit");
+    Setting_frameRateText.setString(L"Ö¡ÂÊÏŞÖÆ : " + c_gameState.Frame_Rate + L" FPS");
     Setting_frameRateText.setCharacterSize(30);
     Setting_frameRateText.setFillColor(sf::Color::White);
     Setting_frameRateText.setPosition({60.f, 390.f});
 
-    Setting_isMouseleaveText.setString("Mouse Leave Pause");
+    Setting_zoomText.setString(L"»Ö¸´Ä¬ÈÏËõ·Å");
+    Setting_zoomText.setCharacterSize(30);
+    Setting_zoomText.setFillColor(sf::Color::White);
+    Setting_zoomText.setPosition({60.f, 460.f});
+
+    Setting_isMouseleaveText.setString(L"ÔÊĞíÊó±êÀë¿ª : " + c_gameState.is_MouseLeave_Pause);
     Setting_isMouseleaveText.setCharacterSize(30);
     Setting_isMouseleaveText.setFillColor(sf::Color::White);
-    Setting_isMouseleaveText.setPosition({60.f, 460.f});
+    Setting_isMouseleaveText.setPosition({60.f, 530.f});
 
-    Setting_isMousefollowText.setString("Mouse Follow");
+    Setting_isMousefollowText.setString(L"ÊÓ½Ç¸úËæ : " + c_gameState.is_Mouse_Follow_Camera);
     Setting_isMousefollowText.setCharacterSize(30);
     Setting_isMousefollowText.setFillColor(sf::Color::White);
-    Setting_isMousefollowText.setPosition({60.f, 530.f});
+    Setting_isMousefollowText.setPosition({60.f, 600.f});
 
-    Setting_BackText.setString("Back");
+    Setting_BackText.setString(L"·µ»Ø");
     Setting_BackText.setCharacterSize(30);
     Setting_BackText.setFillColor(sf::Color::White);
-    Setting_BackText.setPosition({60.f, 600.f});
+    Setting_BackText.setPosition({60.f, 670.f});
 
-    // è®¾ç½®æš‚åœèœå•é€‰é¡¹æ–‡æœ¬ä¸ä½ç½®
-    Pause_ResumeText.setString("Resume");
+    // ÉèÖÃÔİÍ£²Ëµ¥Ñ¡ÏîÎÄ±¾ÓëÎ»ÖÃ
+    Pause_ResumeText.setString(L"¼ÌĞøÓÎÏ·");
     Pause_ResumeText.setCharacterSize(40);
     Pause_ResumeText.setFillColor(sf::Color::White);
     Pause_ResumeText.setPosition({60.f, 300.f});
 
-    Pause_SettingText.setString("Settings");
+    Pause_SettingText.setString(L"ÉèÖÃ");
     Pause_SettingText.setCharacterSize(40);
     Pause_SettingText.setFillColor(sf::Color::White);
     Pause_SettingText.setPosition({60.f, 400.f});
 
-    Pause_ExitText.setString("Exit to Main Menu");
+    Pause_ExitText.setString(L"ÍË³öµ½Ö÷²Ëµ¥");
     Pause_ExitText.setCharacterSize(40);
     Pause_ExitText.setFillColor(sf::Color::White);
     Pause_ExitText.setPosition({60.f, 500.f});
 
-    // è®¾ç½®æ¸¸æˆç»“æŸèœå•é€‰é¡¹æ–‡æœ¬ä¸ä½ç½®
-    Over_RestartText.setString("Restart");
+    // ÉèÖÃÓÎÏ·½áÊø²Ëµ¥Ñ¡ÏîÎÄ±¾ÓëÎ»ÖÃ
+    Over_RestartText.setString(L"ÔÙÏëÏë");
     Over_RestartText.setCharacterSize(40);
     Over_RestartText.setFillColor(sf::Color::White);
     Over_RestartText.setPosition({60.f, 300.f});
 
-    Over_ExitText.setString("Exit to Main Menu");
+    Over_ExitText.setString(L"ËµÁË£¡ÍË³ö£¡£¡");
     Over_ExitText.setCharacterSize(40);
     Over_ExitText.setFillColor(sf::Color::White);
     Over_ExitText.setPosition({60.f, 400.f});

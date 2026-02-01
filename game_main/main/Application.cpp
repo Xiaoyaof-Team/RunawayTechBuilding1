@@ -8,15 +8,10 @@
 #include "Application.hpp"
 
 // 构造函数
-Application::Application() : c_window(sf::VideoMode({1200, 800}), "RunawayDUT353")
+Application::Application() : c_window(sf::VideoMode({1920, 1080}), "RunawayDUT353"),
+    c_menu(c_gameState)
 {
-    // 默认设置帧数为60
-    c_window.setFramerateLimit(60);
-    // 禁用按键重复
-    c_window.setKeyRepeatEnabled(false);
-
-    // 最后设置显示菜单为主菜单
-    c_menu.currentState = MenuState::MainMenu;
+    CreateDefaultWindow();
 }
 
 // 检查程序是否运行
@@ -28,16 +23,11 @@ bool Application::IsRunning() const
 // 处理事件
 void Application::ProcessEvent()
 {
-    if (c_menu.currentState == MenuState::Quit)
-    {
-        Close();
-        return;
-    }
     c_window.handleEvents([this](const auto &Tevent)
                           {
     // 事件被处理则返回true，未被处理则返回false
     if(this->HandleEvent(Tevent)) return;
-    if(this->c_menu.HandleEvent(Tevent)) return; });
+    if(this->c_menu.HandleEvent(Tevent, c_window)) return; });
 }
 
 // 更新游戏状态
@@ -47,7 +37,10 @@ void Application::Update()
     auto deltatime = deltaTime.restart().asSeconds();
     // SED: 更新游戏内容
     // 更新菜单状态
-    c_menu.Menu_update();
+    c_menu.Menu_update(c_window);
+    // 更新相机
+    UpdateCamera();
+
 }
 
 // 刷新显示效果
@@ -66,6 +59,12 @@ bool Application::HandleEvent(const sf::Event::Closed &)
 {
     Close();
     return true;
+}
+
+bool Application::HandleEvent(const sf::Event::MouseButtonPressed & mouse)
+{
+    c_music.mouseClickSound.play();
+    return false;
 }
 
 // 关闭窗口

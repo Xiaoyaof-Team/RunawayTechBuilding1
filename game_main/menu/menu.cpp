@@ -1,67 +1,73 @@
 /*
- *@ æ–‡ä»¶ ï¼š menu.cpp
- *@ æè¿° ï¼š èœå•ç•Œé¢çš„ç±»å®ç°
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”ç‹ 
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼ş £º menu.cpp
+ *@ ÃèÊö £º ²Ëµ¥½çÃæµÄÀàÊµÏÖ
+ *@ ×÷Õß £º Ğ¡¿ÖÁú´óÄ§Íõ
+ *@ Ê±¼ä £º 2026-2-1
  */
 #include "menu.hpp"
 #include "type.hpp"
+#include "GameStateMachine.hpp"
 
-Menu::Menu() : backgroundTexture(), backgroundSprite(backgroundTexture),
-               titleText(typeface.Black),
-               MainMenu_StartText(typeface.Bold),
-               MainMenu_SettingText(typeface.Bold),
-               MainMenu_ExitText(typeface.Bold),
-               Setting_VolumeText(typeface.Bold),
-               Setting_isFullScreenText(typeface.Bold),
-               Setting_frameRateText(typeface.Bold),
-               Setting_isMouseleaveText(typeface.Bold),
-               Setting_isMousefollowText(typeface.Bold),
-               Setting_BackText(typeface.Bold),
-               Pause_ResumeText(typeface.Bold),
-               Pause_SettingText(typeface.Bold),
-               Pause_ExitText(typeface.Bold),
-               Over_RestartText(typeface.Bold),
-               Over_ExitText(typeface.Bold)
+Menu::Menu(GameStateMachine &c_gameState) : c_gameState(c_gameState),
+                                            backgroundTexture(), backgroundSprite(backgroundTexture),
+                                            titleText(typeface.Black),
+                                            MainMenu_StartText(typeface.Bold),
+                                            MainMenu_SettingText(typeface.Bold),
+                                            MainMenu_ExitText(typeface.Bold),
+                                            Setting_VolumeText(typeface.Bold),
+                                            Setting_isFullScreenText(typeface.Bold),
+                                            Setting_frameRateText(typeface.Bold),
+                                            Setting_zoomText(typeface.Bold),
+                                            Setting_isMouseleaveText(typeface.Bold),
+                                            Setting_isMousefollowText(typeface.Bold),
+                                            Setting_BackText(typeface.Bold),
+                                            Pause_ResumeText(typeface.Bold),
+                                            Pause_SettingText(typeface.Bold),
+                                            Pause_ExitText(typeface.Bold),
+                                            Over_RestartText(typeface.Bold),
+                                            Over_ExitText(typeface.Bold)
 {
-    // åŠ è½½èƒŒæ™¯çº¹ç†
-
-    Menu_loadResources();
+    Menu_loadResources(c_gameState);
 }
 
-void Menu::Menu_update()
+void Menu::Menu_update(sf::RenderWindow &c_window)
 {
-    switch (currentState)
+    switch (c_menuState.currentState)
     {
     case MenuState::None:
-        // ä¸æ˜¾ç¤ºä»»ä½•èœå•
+        // ²»ÏÔÊ¾ÈÎºÎ²Ëµ¥
         break;
     case MenuState::MainMenu:
-        // æ›´æ–°ä¸»èœå•é€‰é¡¹
+        // ¸üĞÂÖ÷²Ëµ¥Ñ¡Ïî
         break;
     case MenuState::Setting:
-        // æ›´æ–°è®¾ç½®èœå•é€‰é¡¹
+        // ¼ÓÔØ×îĞÂµÄÉèÖÃÑ¡Ïî
+        Setting_VolumeText.setString(L"ÒôÁ¿ : " + std::to_wstring(c_gameState.Volume) + L" %");
+        Setting_isFullScreenText.setString(L"ÏÔÊ¾ÉèÖÃ : " + c_gameState.is_FullScreen);
+        Setting_frameRateText.setString(L"Ö¡ÂÊÏŞÖÆ : " + c_gameState.Frame_Rate + L" FPS");
+        Setting_isMouseleaveText.setString(L"ÔÊĞíÊó±êÀë¿ª : " + c_gameState.is_MouseLeave_Pause);
+        Setting_isMousefollowText.setString(L"Êó±ê¸úËæÊÓ½Ç : " + c_gameState.is_Mouse_Follow_Camera);
         break;
     case MenuState::Pause:
-        // æ›´æ–°æš‚åœèœå•é€‰é¡¹
+        // ¸üĞÂÔİÍ£²Ëµ¥Ñ¡Ïî
         break;
     case MenuState::Over:
-        // æ›´æ–°æ¸¸æˆç»“æŸèœå•é€‰é¡¹
+        // ¸üĞÂÓÎÏ·½áÊø²Ëµ¥Ñ¡Ïî
         break;
     default:
         break;
     }
 }
 
-void Menu::Menu_draw(sf::RenderWindow& c_window)
+void Menu::Menu_draw(sf::RenderWindow &c_window)
 {
-    switch (currentState)
+    switch (c_menuState.currentState)
     {
     case MenuState::None:
-        // ä¸ç»˜åˆ¶ä»»ä½•èœå•
+        // ²»»æÖÆÈÎºÎ²Ëµ¥
         break;
     case MenuState::MainMenu:
-        // ç»˜åˆ¶ä¸»èœå•é€‰é¡¹
+        // »æÖÆÖ÷²Ëµ¥Ñ¡Ïî
         c_window.draw(backgroundSprite);
         c_window.draw(titleText);
         c_window.draw(MainMenu_StartText);
@@ -69,18 +75,19 @@ void Menu::Menu_draw(sf::RenderWindow& c_window)
         c_window.draw(MainMenu_ExitText);
         break;
     case MenuState::Setting:
-        // ç»˜åˆ¶è®¾ç½®èœå•é€‰é¡¹
+        // »æÖÆÉèÖÃ²Ëµ¥Ñ¡Ïî
         c_window.draw(backgroundSprite);
         c_window.draw(titleText);
         c_window.draw(Setting_VolumeText);
         c_window.draw(Setting_isFullScreenText);
         c_window.draw(Setting_frameRateText);
+        c_window.draw(Setting_zoomText);
         c_window.draw(Setting_isMouseleaveText);
         c_window.draw(Setting_isMousefollowText);
         c_window.draw(Setting_BackText);
         break;
     case MenuState::Pause:
-        // ç»˜åˆ¶æš‚åœèœå•é€‰é¡¹
+        // »æÖÆÔİÍ£²Ëµ¥Ñ¡Ïî
         c_window.draw(backgroundSprite);
         c_window.draw(titleText);
         c_window.draw(Pause_ResumeText);
@@ -88,7 +95,7 @@ void Menu::Menu_draw(sf::RenderWindow& c_window)
         c_window.draw(Pause_ExitText);
         break;
     case MenuState::Over:
-        // ç»˜åˆ¶æ¸¸æˆç»“æŸèœå•é€‰é¡¹
+        // »æÖÆÓÎÏ·½áÊø²Ëµ¥Ñ¡Ïî
         c_window.draw(backgroundSprite);
         c_window.draw(titleText);
         c_window.draw(Over_RestartText);
@@ -98,6 +105,3 @@ void Menu::Menu_draw(sf::RenderWindow& c_window)
         break;
     }
 }
-
-
-

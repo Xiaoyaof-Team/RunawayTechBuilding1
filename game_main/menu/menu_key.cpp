@@ -7,16 +7,16 @@
 #include "menu.hpp"
 #include "type.hpp"
 
-bool Menu::HandleEvent(const sf::Event::KeyPressed &key)
+bool Menu::HandleEvent(const sf::Event::KeyPressed &key, sf::RenderWindow &c_window)
 {
     // 根据当前菜单状态处理按键事件
-    switch (currentState)
+    switch (c_menuState.currentState)
     {
     case MenuState::None:
         // 在没有菜单状态下如进入游戏状态时按下Esc键显示暂停页面
         if (key.code == sf::Keyboard::Key::Escape)
         {
-            currentState = MenuState::Pause;
+            c_menuState.currentState = MenuState::Pause;
             return true;
         }
         break;
@@ -24,7 +24,7 @@ bool Menu::HandleEvent(const sf::Event::KeyPressed &key)
         // 在主菜单状态下按下Esc键退出游戏
         if (key.code == sf::Keyboard::Key::Escape)
         {
-            currentState = MenuState::Over;
+            c_menuState.currentState = MenuState::Over;
             return true;
         }
         break;
@@ -32,7 +32,7 @@ bool Menu::HandleEvent(const sf::Event::KeyPressed &key)
         // 在设置菜单状态下按下Esc键返回上一次菜单状态
         if (key.code == sf::Keyboard::Key::Escape)
         {
-            currentState = lastState;
+            c_menuState.currentState = c_menuState.lastState;
             return true;
         }
         break;
@@ -40,7 +40,7 @@ bool Menu::HandleEvent(const sf::Event::KeyPressed &key)
         // 在暂停菜单状态下按下Esc键返回游戏状态
         if (key.code == sf::Keyboard::Key::Escape)
         {
-            currentState = MenuState::None;
+            c_menuState.currentState = MenuState::None;
             return true;
         }
         break;
@@ -48,7 +48,7 @@ bool Menu::HandleEvent(const sf::Event::KeyPressed &key)
         // 在游戏结束菜单状态下按下Esc键返回主菜单
         if (key.code == sf::Keyboard::Key::Escape)
         {
-            currentState = MenuState::MainMenu;
+            c_menuState.currentState = MenuState::MainMenu;
             return true;
         }
         break;

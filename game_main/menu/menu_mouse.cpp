@@ -1,91 +1,92 @@
 /*
- *@ æ–‡ä»¶ ï¼š menu_mouse.cpp
- *@ æè¿° ï¼š èœå•ç•Œé¢çš„ç±»å¯¹é¼ æ ‡äº‹ä»¶çš„å®ç°
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”ç‹
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼ş £º menu_mouse.cpp
+ *@ ÃèÊö £º ²Ëµ¥½çÃæµÄÀà¶ÔÊó±êÊÂ¼şµÄÊµÏÖ
+ *@ ×÷Õß £º Ğ¡¿ÖÁú´óÄ§Íõ
+ *@ Ê±¼ä £º 2026-2-1
  */
 #include "menu.hpp"
 #include "type.hpp"
+#include "GameStateMachine.hpp"
 
-bool Menu::HandleEvent(const sf::Event::MouseButtonPressed &mouse)
+bool Menu::HandleEvent(const sf::Event::MouseButtonPressed &mouse, sf::RenderWindow &c_window)
 {
-    auto mousePos = (sf::Vector2f)mouse.position;
-    // æ ¹æ®å½“å‰èœå•çŠ¶æ€å¤„ç†é¼ æ ‡ç‚¹å‡»äº‹ä»¶
-    switch (currentState)
+    auto mousePos = (sf::Vector2f)c_window.mapPixelToCoords(mouse.position);
+    // ¸ù¾İµ±Ç°²Ëµ¥×´Ì¬´¦ÀíÊó±êµã»÷ÊÂ¼ş
+    switch (c_menuState.currentState)
     {
     case MenuState::None:
-        // ä¸å¤„ç†é¼ æ ‡äº‹ä»¶
+        // ²»´¦ÀíÊó±êÊÂ¼ş
         break;
     case MenuState::MainMenu:
-        // å¤„ç†ä¸»èœå•é¼ æ ‡ç‚¹å‡»äº‹ä»¶
+        // ´¦ÀíÖ÷²Ëµ¥Êó±êµã»÷ÊÂ¼ş
         if (MainMenu_StartText.getGlobalBounds().contains(mousePos))
         {
-            // ç‚¹å‡»å¼€å§‹æ¸¸æˆ
-            currentState = MenuState::None;
+            // µã»÷¿ªÊ¼ÓÎÏ·
+            c_menuState.currentState = MenuState::None;
             return true;
         }
         else if (MainMenu_SettingText.getGlobalBounds().contains(mousePos))
         {
-            // ç‚¹å‡»è®¾ç½®
-            // è®°å½•ä¸Šä¸€æ¬¡èœå•çŠ¶æ€
-            lastState = currentState;
-            currentState = MenuState::Setting;
+            // µã»÷ÉèÖÃ
+            // ¼ÇÂ¼ÉÏÒ»´Î²Ëµ¥×´Ì¬
+            c_menuState.lastState = c_menuState.currentState;
+            c_menuState.currentState = MenuState::Setting;
             return true;
         }
         else if (MainMenu_ExitText.getGlobalBounds().contains(mousePos))
         {
-            // ç‚¹å‡»é€€å‡ºæ¸¸æˆ
-            currentState = MenuState::Over;
+            // µã»÷ÍË³öÓÎÏ·
+            c_menuState.currentState = MenuState::Over;
             return true;
         }
         break;
     case MenuState::Setting:
-        // å¤„ç†è®¾ç½®èœå•é¼ æ ‡ç‚¹å‡»äº‹ä»¶
-        // SED:è¿˜æœ‰å…¶ä»–çš„è®¾ç½®é€‰é¡¹æœªå®ç°ï¼Œå…·ä½“çš„å®ç°å¾…å®š
+        // ´¦ÀíÉèÖÃ²Ëµ¥Êó±êµã»÷ÊÂ¼ş
+        // SED:»¹ÓĞÆäËûµÄÉèÖÃÑ¡ÏîÎ´ÊµÏÖ£¬¾ßÌåµÄÊµÏÖ´ı¶¨
+        handle_setting_change(mouse, c_window);
         if (Setting_BackText.getGlobalBounds().contains(mousePos))
         {
-            // ç‚¹å‡»è¿”å›
-            currentState = lastState;
+            // µã»÷·µ»Ø
+            c_menuState.currentState = c_menuState.lastState;
             return true;
         }
         break;
     case MenuState::Pause:
-        // å¤„ç†æš‚åœèœå•é¼ æ ‡ç‚¹å‡»äº‹ä»¶
+        // ´¦ÀíÔİÍ£²Ëµ¥Êó±êµã»÷ÊÂ¼ş
         if (Pause_ResumeText.getGlobalBounds().contains(mousePos))
         {
-            // ç‚¹å‡»ç»§ç»­æ¸¸æˆ
-            currentState = MenuState::None;
+            // µã»÷¼ÌĞøÓÎÏ·
+            c_menuState.currentState = MenuState::None;
             return true;
         }
         else if (Pause_SettingText.getGlobalBounds().contains(mousePos))
         {
-            // ç‚¹å‡»è®¾ç½®
-            // è®°å½•ä¸Šä¸€æ¬¡èœå•çŠ¶æ€
-            lastState = currentState;
-            currentState = MenuState::Setting;
+            // µã»÷ÉèÖÃ
+            // ¼ÇÂ¼ÉÏÒ»´Î²Ëµ¥×´Ì¬
+            c_menuState.lastState = c_menuState.currentState;
+            c_menuState.currentState = MenuState::Setting;
             return true;
         }
         else if (Pause_ExitText.getGlobalBounds().contains(mousePos))
         {
-            // ç‚¹å‡»å›åˆ°ä¸»èœå•
-            // SEDï¼šéœ€è¦ä½¿æ¸¸æˆçŠ¶æ€æœºå›åˆ°åˆå§‹çŠ¶æ€
-            currentState = MenuState::MainMenu;
+            // µã»÷»Øµ½Ö÷²Ëµ¥
+            // SED£ºĞèÒªÊ¹ÓÎÏ·×´Ì¬»ú»Øµ½³õÊ¼×´Ì¬
+            c_menuState.currentState = MenuState::MainMenu;
             return true;
         }
         break;
     case MenuState::Over:
-        // å¤„ç†æ¸¸æˆç»“æŸèœå•é¼ æ ‡ç‚¹å‡»äº‹ä»¶
+        // ´¦ÀíÓÎÏ·½áÊø²Ëµ¥Êó±êµã»÷ÊÂ¼ş
         if (Over_RestartText.getGlobalBounds().contains(mousePos))
         {
-            // ç‚¹å‡»å›åˆ°ä¸»èœå•
-            currentState = MenuState::MainMenu;
+            // µã»÷»Øµ½Ö÷²Ëµ¥
+            c_menuState.currentState = MenuState::MainMenu;
             return true;
         }
         else if (Over_ExitText.getGlobalBounds().contains(mousePos))
         {
-            // ç‚¹å‡»é€€å‡ºæ¸¸æˆ
-            // SEDï¼š éœ€è¦è°ƒç”¨åº”ç”¨ç¨‹åºçš„é€€å‡ºå‡½æ•°
-            currentState = MenuState::Quit;
+            // µã»÷ÍË³öÓÎÏ·
+            c_window.close();
             return true;
         }
         break;
@@ -94,3 +95,78 @@ bool Menu::HandleEvent(const sf::Event::MouseButtonPressed &mouse)
     }
     return false;
 }
+
+void Menu::handle_setting_change(const sf::Event::MouseButtonPressed &mouse, sf::RenderWindow &c_window)
+{
+    auto mousePos = (sf::Vector2f)c_window.mapPixelToCoords(mouse.position);
+    // ´¦ÀíÉèÖÃ²Ëµ¥ÖĞµÄ¸÷ÏîÉèÖÃ¸ü¸Ä
+    if (Setting_VolumeText.getGlobalBounds().contains(mousePos))
+    {
+        if (c_gameState.Volume < 100)
+        {
+            c_music.backgroundMusic.setVolume(c_gameState.Volume + 10);
+            c_gameState.Volume += 10;
+        }
+        else
+        {
+            c_music.backgroundMusic.setVolume(0);
+            c_gameState.Volume = 0;
+        }
+    }
+    else if (Setting_isFullScreenText.getGlobalBounds().contains(mousePos))
+    {
+        if (c_gameState.is_FullScreen == L"´°¿Ú»¯")
+        {
+            c_window.create({}, "RunawayDUT353", sf::State::Fullscreen);
+            c_gameState.is_FullScreen = L"È«ÆÁ";
+        }
+        else
+        {
+            c_window.create(sf::VideoMode(sf::Vector2u(1920, 1080)), "RunawayDUT353", sf::Style::Default);
+            c_gameState.is_FullScreen = L"´°¿Ú»¯";
+        }
+    }
+    else if (Setting_frameRateText.getGlobalBounds().contains(mousePos))
+    {
+        if (c_gameState.Frame_Rate == L"30")
+        {
+            c_window.setFramerateLimit(60);
+            c_gameState.Frame_Rate = L"60";
+        }
+        else if (c_gameState.Frame_Rate == L"60")
+        {
+            c_window.setVerticalSyncEnabled(true);
+            c_gameState.Frame_Rate = L"ÎŞÏŞÖÆ";
+        }
+        else
+        {
+            c_window.setVerticalSyncEnabled(false);
+            c_window.setFramerateLimit(30);
+            c_gameState.Frame_Rate = L"30";
+        }
+    }
+    else if (Setting_zoomText.getGlobalBounds().contains(mousePos))
+    {
+        c_gameState.zoom_Level = 1;
+    }
+    else if (Setting_isMouseleaveText.getGlobalBounds().contains(mousePos))
+    {
+        if (c_gameState.is_MouseLeave_Pause == L"ÊÇ")
+        {
+            c_window.setMouseCursorGrabbed(false);
+            c_gameState.is_MouseLeave_Pause = L"·ñ";
+        }
+        else
+        {
+            c_window.setMouseCursorGrabbed(true);
+            c_gameState.is_MouseLeave_Pause = L"ÊÇ";
+        }
+    }
+    else if (Setting_isMousefollowText.getGlobalBounds().contains(mousePos))
+    {
+        // ÇĞ»»Êó±ê¸úËæÊÓ½ÇÉèÖÃ
+        // SED: ÎÒÏë¼ÓÒ»¸öÊÓ½Ç¶¯»­£¬ÈÃÊÓ½ÇÓĞÒ»¶¨¸úÊÖĞ§¹û
+    }
+}
+
+// SED: ĞüÍ£ÊÂ¼ş´ı´¦Àí

@@ -6,26 +6,17 @@
  */
 #pragma once
 #include "SFML/Graphics.hpp"
-
-// 枚举菜单状态
-enum class MenuState
-{
-    None = 0,
-    MainMenu = 1,
-    Setting = 2,
-    Pause = 3,
-    Over = 4,
-    Quit = 5
-};
+#include "GameStateMachine.hpp"
+#include "menuStateMachine.hpp"
+#include "music.hpp"
 
 class Menu
 {
 public:
-    // 声明菜单状态
-    MenuState currentState = MenuState::None;
-    // 声明上一次的菜单状态
-    // 用于设置时返回主菜单或暂停菜单
-    MenuState lastState = MenuState::None;
+    // 声明菜单状态机
+    MenuStateMachine c_menuState;
+    // 获得全局状态机
+    GameStateMachine &c_gameState;
 private:
     // 声明纹理贴图
     sf::Texture backgroundTexture;
@@ -40,6 +31,7 @@ private:
     sf::Text Setting_VolumeText;
     sf::Text Setting_isFullScreenText;
     sf::Text Setting_frameRateText;
+    sf::Text Setting_zoomText;
     sf::Text Setting_isMouseleaveText;
     sf::Text Setting_isMousefollowText;
     sf::Text Setting_BackText;
@@ -52,13 +44,14 @@ private:
     sf::Text Over_ExitText;
 
 public:
-    Menu();
-    void Menu_update();
+    Menu(GameStateMachine &c_gameState);
+    void Menu_update(sf::RenderWindow &c_window);
     void Menu_draw(sf::RenderWindow& c_window);
-    void Menu_loadResources();
+    void Menu_loadResources(GameStateMachine &c_gameState);
 
-    bool HandleEvent(const sf::Event::KeyPressed& key);
-    bool HandleEvent(const sf::Event::MouseButtonPressed& mouse);
+    bool HandleEvent(const sf::Event::KeyPressed &key, sf::RenderWindow &c_window);
+    bool HandleEvent(const sf::Event::MouseButtonPressed &mouse, sf::RenderWindow &c_window);
+    void handle_setting_change(const sf::Event::MouseButtonPressed &mouse, sf::RenderWindow & c_window);
     template <class T>
-    bool HandleEvent(const T&) { return false; }
+    bool HandleEvent(const T &, sf::RenderWindow &c_window) { return false; }
 };
