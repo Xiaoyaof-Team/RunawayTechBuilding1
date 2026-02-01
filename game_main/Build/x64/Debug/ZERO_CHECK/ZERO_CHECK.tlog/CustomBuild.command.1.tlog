@@ -1,0 +1,10 @@
+^D:\ELAB\GAME_STUDY_TEAM\RUNAWAYDUT353\RUNAWAYDUT353\GAME_MAIN\BUILD\CMAKEFILES\9A41E7F65AE1C0147A499F65CEB4799D\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main -BD:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/RunawayDUT353.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

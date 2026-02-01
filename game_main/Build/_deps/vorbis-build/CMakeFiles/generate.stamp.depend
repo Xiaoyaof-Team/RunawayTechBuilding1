@@ -1,0 +1,8 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIncludeFiles.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/GNUInstallDirs.cmake
+D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-src/CMakeLists.txt
+D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-src/vorbis.pc.in
+D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-src/vorbisenc.pc.in
+D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-src/vorbisfile.pc.in

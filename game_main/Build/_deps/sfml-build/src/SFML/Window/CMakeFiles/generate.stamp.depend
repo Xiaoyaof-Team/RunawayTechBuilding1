@@ -1,0 +1,8 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.2/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/FindOpenGL.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/WriteBasicConfigVersionFile.cmake
+D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/sfml-src/src/SFML/Window/CMakeLists.txt
+D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/sfml-src/src/SFML/Window/Dependencies.cmake.in

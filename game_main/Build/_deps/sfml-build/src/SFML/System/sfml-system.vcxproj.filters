@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\Clock.cpp" />
+    <ClCompile Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\Err.cpp" />
+    <ClCompile Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\Sleep.cpp" />
+    <ClCompile Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\String.cpp" />
+    <ClCompile Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\Utils.cpp" />
+    <ClCompile Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\Vector2.cpp" />
+    <ClCompile Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\Vector3.cpp" />
+    <ClCompile Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\FileInputStream.cpp" />
+    <ClCompile Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\MemoryInputStream.cpp" />
+    <ClCompile Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\Win32\SleepImpl.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Angle.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Angle.inl" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Clock.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\EnumArray.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Err.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Exception.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Export.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\InputStream.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\NativeActivity.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Sleep.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\String.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\String.inl" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Time.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Time.inl" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Utf.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Utf.inl" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\Utils.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Vector2.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Vector2.inl" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Vector3.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\Vector3.inl" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\FileInputStream.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\MemoryInputStream.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\include\SFML\System\SuspendAwareClock.hpp" />
+    <ClInclude Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\Win32\SleepImpl.hpp">
+      <Filter>windows</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\sfml-src\src\SFML\System\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="windows">
+      <UniqueIdentifier>{8AE57ABA-67B6-3284-AC2C-0EB1B7CB7DB9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

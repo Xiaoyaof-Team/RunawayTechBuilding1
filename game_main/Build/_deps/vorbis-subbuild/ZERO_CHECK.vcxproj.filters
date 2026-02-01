@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\71745c9f16c24a323a7a3498224c87df\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{20CADC25-CF7D-3285-8A32-8413D59CC930}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.2/Modules/CheckCSourceCompiles.cmake
+D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/flac-src/cmake/CheckA64NEON.cmake
+D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/flac-src/cmake/CheckCPUArch.cmake
+D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/flac-src/src/libFLAC/CMakeLists.txt

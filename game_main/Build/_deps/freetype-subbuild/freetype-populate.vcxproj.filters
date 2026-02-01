@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeFiles\a36388528f9632b9dc15ecdf8c1d36b6\freetype-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeFiles\a36388528f9632b9dc15ecdf8c1d36b6\freetype-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeFiles\a36388528f9632b9dc15ecdf8c1d36b6\freetype-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeFiles\a36388528f9632b9dc15ecdf8c1d36b6\freetype-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeFiles\a36388528f9632b9dc15ecdf8c1d36b6\freetype-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeFiles\a36388528f9632b9dc15ecdf8c1d36b6\freetype-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeFiles\a36388528f9632b9dc15ecdf8c1d36b6\freetype-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeFiles\a36388528f9632b9dc15ecdf8c1d36b6\freetype-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeFiles\41b736d11755358f1d465b7517a19e4e\freetype-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeFiles\165678dd614d546298219cdd354705ff\freetype-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\freetype-subbuild\CMakeFiles\freetype-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{121D7ECE-8983-36F8-9FB8-A187AC04489C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

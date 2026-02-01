@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D36EC1A9-7C28-3757-A2F6-F6A24805372B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>vorbis-populate</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\a237ed8fda70f44ae96e18a2549afb2d\vorbis-populate-mkdir.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'vorbis-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/vorbis-populate-prefix/tmp/vorbis-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\a237ed8fda70f44ae96e18a2549afb2d\vorbis-populate-download.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'vorbis-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/vorbis-populate-prefix/tmp/vorbis-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\vorbis-populate-gitinfo.txt;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\a237ed8fda70f44ae96e18a2549afb2d\vorbis-populate-update.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'vorbis-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/vorbis-populate-prefix/tmp/vorbis-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\tmp\vorbis-populate-gitupdate.cmake;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\vorbis-populate-update-info.txt;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\a237ed8fda70f44ae96e18a2549afb2d\vorbis-populate-patch.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing patch step for 'vorbis-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -DVORBIS_DIR=D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-src -P D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/sfml-src/tools/vorbis/PatchVorbis.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\vorbis-populate-patch-info.txt;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\a237ed8fda70f44ae96e18a2549afb2d\vorbis-populate-configure.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'vorbis-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\tmp\vorbis-populate-cfgcmd.txt;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\a237ed8fda70f44ae96e18a2549afb2d\vorbis-populate-build.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'vorbis-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\a237ed8fda70f44ae96e18a2549afb2d\vorbis-populate-install.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'vorbis-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\a237ed8fda70f44ae96e18a2549afb2d\vorbis-populate-test.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'vorbis-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\32c0c1b28f97bc850e28a91d50719fa5\vorbis-populate-complete.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'vorbis-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/CMakeFiles/Debug/vorbis-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-install;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-mkdir;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-download;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-update;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-patch;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-configure;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-build;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\src\vorbis-populate-stamp\Debug\vorbis-populate-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\Debug\vorbis-populate-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\71745c9f16c24a323a7a3498224c87df\vorbis-populate.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\Debug\vorbis-populate-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\vorbis-populate</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild -BD:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild --check-stamp-file D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/vorbis-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\ExternalProject\PatchInfo.txt.in;C:\Program Files\CMake\share\cmake-4.2\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Program Files\CMake\share\cmake-4.2\Modules\ExternalProject\UpdateInfo.txt.in;C:\Program Files\CMake\share\cmake-4.2\Modules\ExternalProject\cfgcmd.txt.in;C:\Program Files\CMake\share\cmake-4.2\Modules\ExternalProject\gitclone.cmake.in;C:\Program Files\CMake\share\cmake-4.2\Modules\ExternalProject\gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-4.2\Modules\ExternalProject\mkdirs.cmake.in;C:\Program Files\CMake\share\cmake-4.2\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\4.2.0\CMakeSystem.cmake;D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\vorbis-populate-prefix\tmp\vorbis-populate-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\CMakeFiles\vorbis-populate">
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\vorbis-subbuild\ZERO_CHECK.vcxproj">
+      <Project>{B7848D9F-B1E6-3506-B8E8-FC329763223A}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

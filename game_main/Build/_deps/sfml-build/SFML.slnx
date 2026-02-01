@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Solution>
+	<Configurations>
+		<BuildType Name="Debug"/>
+		<BuildType Name="Release"/>
+		<BuildType Name="MinSizeRel"/>
+		<BuildType Name="RelWithDebInfo"/>
+		<Platform Name="x64"/>
+	</Configurations>
+	<Folder Name="/CMake/">
+		<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4bcda2a1-1306-3f8d-9ef0-dbff63acb3c2" DefaultStartup="true">
+			<BuildDependency Project="../flac-build/src/libFLAC/FLAC.vcxproj"/>
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="../freetype-build/freetype.vcxproj"/>
+			<BuildDependency Project="../ogg-build/ogg.vcxproj"/>
+			<BuildDependency Project="src/SFML/Audio/sfml-audio.vcxproj"/>
+			<BuildDependency Project="src/SFML/Graphics/sfml-graphics.vcxproj"/>
+			<BuildDependency Project="src/SFML/Main/sfml-main.vcxproj"/>
+			<BuildDependency Project="src/SFML/Network/sfml-network.vcxproj"/>
+			<BuildDependency Project="src/SFML/System/sfml-system.vcxproj"/>
+			<BuildDependency Project="src/SFML/Window/sfml-window.vcxproj"/>
+			<BuildDependency Project="../vorbis-build/lib/vorbis.vcxproj"/>
+			<BuildDependency Project="../vorbis-build/lib/vorbisenc.vcxproj"/>
+			<BuildDependency Project="../vorbis-build/lib/vorbisfile.vcxproj"/>
+		</Project>
+		<Project Path="INSTALL.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fa670793-41ef-356b-9f59-28d20e58ccad">
+			<BuildDependency Project="ALL_BUILD.vcxproj"/>
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="PACKAGE.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4bcf656b-74b0-3a35-aa74-fe0145e378da">
+			<BuildDependency Project="ALL_BUILD.vcxproj"/>
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="../../ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1f96e3d8-b69a-390c-9ae4-6cadd8c2799a"/>
+	</Folder>
+	<Folder Name="/Dependencies/">
+		<Project Path="../flac-build/src/libFLAC/FLAC.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="49a97916-ffa1-365e-bd9e-4b746ebdc374">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="../ogg-build/ogg.vcxproj"/>
+		</Project>
+		<Project Path="../freetype-build/freetype.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ef52e926-6d29-34e9-a7fd-482f5640dc9e">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="../ogg-build/ogg.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6b40f18a-c292-3f10-be74-a6ee23ecce45">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="../vorbis-build/lib/vorbis.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="750f9558-e272-3b42-aab7-410b6e6775bb">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="../ogg-build/ogg.vcxproj"/>
+		</Project>
+		<Project Path="../vorbis-build/lib/vorbisenc.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="26f796d1-9b56-3277-956f-771dd6fc72e5">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="../ogg-build/ogg.vcxproj"/>
+			<BuildDependency Project="../vorbis-build/lib/vorbis.vcxproj"/>
+		</Project>
+		<Project Path="../vorbis-build/lib/vorbisfile.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="24417eeb-fce6-3b0a-b360-3c016bf96553">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="../ogg-build/ogg.vcxproj"/>
+			<BuildDependency Project="../vorbis-build/lib/vorbis.vcxproj"/>
+		</Project>
+	</Folder>
+	<Folder Name="/SFML/">
+		<Project Path="src/SFML/Audio/sfml-audio.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="75bb462a-162e-3c83-b68e-3a46bc7a07c9">
+			<BuildDependency Project="../flac-build/src/libFLAC/FLAC.vcxproj"/>
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="../ogg-build/ogg.vcxproj"/>
+			<BuildDependency Project="src/SFML/System/sfml-system.vcxproj"/>
+			<BuildDependency Project="../vorbis-build/lib/vorbis.vcxproj"/>
+			<BuildDependency Project="../vorbis-build/lib/vorbisenc.vcxproj"/>
+			<BuildDependency Project="../vorbis-build/lib/vorbisfile.vcxproj"/>
+		</Project>
+		<Project Path="src/SFML/Graphics/sfml-graphics.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d2860b91-55aa-33a5-92a3-52c407ab7bbd">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="../freetype-build/freetype.vcxproj"/>
+			<BuildDependency Project="src/SFML/System/sfml-system.vcxproj"/>
+			<BuildDependency Project="src/SFML/Window/sfml-window.vcxproj"/>
+		</Project>
+		<Project Path="src/SFML/Main/sfml-main.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="83bb55ac-16cb-37bd-9535-504ac530bf07">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="src/SFML/Network/sfml-network.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="35f3b097-dcc2-31fd-ab0b-695f48da6530">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="src/SFML/System/sfml-system.vcxproj"/>
+		</Project>
+		<Project Path="src/SFML/System/sfml-system.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="43d3e251-9809-3606-91c0-cb4d4db24871">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="src/SFML/Window/sfml-window.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="269f5ba4-a8fe-36ad-a4d9-4e5dcc228f35">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="src/SFML/System/sfml-system.vcxproj"/>
+		</Project>
+	</Folder>
+</Solution>

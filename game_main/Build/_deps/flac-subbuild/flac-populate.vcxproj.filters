@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeFiles\704a04c4848fa982f0ec922f8656a39b\flac-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeFiles\704a04c4848fa982f0ec922f8656a39b\flac-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeFiles\704a04c4848fa982f0ec922f8656a39b\flac-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeFiles\704a04c4848fa982f0ec922f8656a39b\flac-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeFiles\704a04c4848fa982f0ec922f8656a39b\flac-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeFiles\704a04c4848fa982f0ec922f8656a39b\flac-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeFiles\704a04c4848fa982f0ec922f8656a39b\flac-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeFiles\704a04c4848fa982f0ec922f8656a39b\flac-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeFiles\d5e05915e906fd87c95adc329859a9fc\flac-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeFiles\312f1b179139a47b857b53af655ca014\flac-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\elab\game_study_team\RunawayDUT353\RunawayDUT353\game_main\Build\_deps\flac-subbuild\CMakeFiles\flac-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E3582B78-3602-346B-812D-6BEEBA255CA9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

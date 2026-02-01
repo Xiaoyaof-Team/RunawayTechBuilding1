@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "game_start.dir\\Debug\\menu_mouse.obj",
+            "outputs": [
+                "D:\\elab\\game_study_team\\RunawayDUT353\\RunawayDUT353\\game_main\\Build\\game_start.dir\\Debug\\vc145.pdb",
+                "game_start.dir\\Debug\\"
+            ],
+            "requires": []
+        }
+    ]
+}

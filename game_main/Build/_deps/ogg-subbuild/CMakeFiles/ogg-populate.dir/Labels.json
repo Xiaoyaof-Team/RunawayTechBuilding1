@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/ogg-subbuild/CMakeFiles/ogg-populate"
+		},
+		{
+			"file" : "D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/ogg-subbuild/CMakeFiles/ea03a9a4573559e03b29947f9fccd4c5/ogg-populate.rule"
+		},
+		{
+			"file" : "D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/ogg-subbuild/CMakeFiles/c74d1aedb68bfd8df178bccb99794760/ogg-populate-complete.rule"
+		},
+		{
+			"file" : "D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/ogg-subbuild/CMakeFiles/52b01eda33294ea548fdb9cc6e47a685/ogg-populate-build.rule"
+		},
+		{
+			"file" : "D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/ogg-subbuild/CMakeFiles/52b01eda33294ea548fdb9cc6e47a685/ogg-populate-configure.rule"
+		},
+		{
+			"file" : "D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/ogg-subbuild/CMakeFiles/52b01eda33294ea548fdb9cc6e47a685/ogg-populate-download.rule"
+		},
+		{
+			"file" : "D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/ogg-subbuild/CMakeFiles/52b01eda33294ea548fdb9cc6e47a685/ogg-populate-install.rule"
+		},
+		{
+			"file" : "D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/ogg-subbuild/CMakeFiles/52b01eda33294ea548fdb9cc6e47a685/ogg-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/ogg-subbuild/CMakeFiles/52b01eda33294ea548fdb9cc6e47a685/ogg-populate-patch.rule"
+		},
+		{
+			"file" : "D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/ogg-subbuild/CMakeFiles/52b01eda33294ea548fdb9cc6e47a685/ogg-populate-test.rule"
+		},
+		{
+			"file" : "D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/ogg-subbuild/CMakeFiles/52b01eda33294ea548fdb9cc6e47a685/ogg-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"ogg-populate"
+		],
+		"name" : "ogg-populate"
+	}
+}

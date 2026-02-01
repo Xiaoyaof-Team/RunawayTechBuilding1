@@ -1,0 +1,10 @@
+^D:\ELAB\GAME_STUDY_TEAM\RUNAWAYDUT353\RUNAWAYDUT353\GAME_MAIN\BUILD\_DEPS\SFML-SRC\SRC\SFML\SYSTEM\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main -BD:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build --check-stamp-file D:/elab/game_study_team/RunawayDUT353/RunawayDUT353/game_main/Build/_deps/sfml-build/src/SFML/System/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
