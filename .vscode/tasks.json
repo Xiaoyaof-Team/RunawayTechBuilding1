@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "RunawayDUT353",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/game_main/Build",
+                "--config",
+                "Debug",
+                "-j"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        }
+    ]
+}
