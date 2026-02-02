@@ -117,14 +117,61 @@ void Menu::handle_setting_change(const sf::Event::MouseButtonPressed &mouse, sf:
     {
         if (c_gameState.is_FullScreen == L"窗口化")
         {
-            c_window.create({}, "RunawayDUT353", sf::State::Fullscreen);
+            auto mode = sf::VideoMode::getDesktopMode();
+            c_window.create(mode, "RunawayDUT353", sf::State::Fullscreen);
             c_gameState.is_FullScreen = L"全屏";
+
+            // 强制刷新相机比例
+            float windowRatio = (float)mode.size.x / (float)mode.size.y;
+            float viewRatio = 1920.f / 1080.f;
+            float sizeX = 1.f;
+            float sizeY = 1.f;
+            float posX = 0.f;
+            float posY = 0.f;
+
+            if (windowRatio > viewRatio)
+            {
+                sizeX = viewRatio / windowRatio;
+                posX = (1.f - sizeX) / 2.f;
+            }
+            else
+            {
+                sizeY = windowRatio / viewRatio;
+                posY = (1.f - sizeY) / 2.f;
+            }
+            c_camera.setViewport(sf::FloatRect({posX, posY}, {sizeX, sizeY}));
+            c_window.setView(c_camera);
         }
         else
         {
             c_window.create(sf::VideoMode(sf::Vector2u(1920, 1080)), "RunawayDUT353", sf::Style::Default);
             c_gameState.is_FullScreen = L"窗口化";
+            
+            // 窗口化回归默认16:9，重置视口为全铺满
+            c_camera.setViewport(sf::FloatRect({0.f, 0.f}, {1.f, 1.f}));
+            c_window.setView(c_camera);
         }
+        // 默认设置帧数
+        if (c_gameState.Frame_Rate == L"30")
+        {
+            c_window.setVerticalSyncEnabled(false);
+            c_window.setFramerateLimit(30);
+        }
+        else if (c_gameState.Frame_Rate == L"60")
+        {
+            c_window.setVerticalSyncEnabled(false);
+            c_window.setFramerateLimit(60);
+        }
+        else
+        {
+            c_window.setVerticalSyncEnabled(true);
+        }
+        // 禁用按键重复
+        c_window.setKeyRepeatEnabled(false);
+        // 重置相机视图
+        c_camera.setSize({1920.f, 1080.f});
+        c_camera.setCenter({960.f, 540.f});
+        c_window.setView(c_camera);
     }
     else if (Setting_frameRateText.getGlobalBounds().contains(mousePos))
     {
@@ -136,7 +183,7 @@ void Menu::handle_setting_change(const sf::Event::MouseButtonPressed &mouse, sf:
         else if (c_gameState.Frame_Rate == L"60")
         {
             c_window.setVerticalSyncEnabled(true);
-            c_gameState.Frame_Rate = L"无限制";
+            c_gameState.Frame_Rate = L"垂直同步";
         }
         else
         {
@@ -153,12 +200,12 @@ void Menu::handle_setting_change(const sf::Event::MouseButtonPressed &mouse, sf:
     {
         if (c_gameState.is_MouseLeave_Pause == L"是")
         {
-            c_window.setMouseCursorGrabbed(false);
+            c_window.setMouseCursorGrabbed(true);
             c_gameState.is_MouseLeave_Pause = L"否";
         }
         else
         {
-            c_window.setMouseCursorGrabbed(true);
+            c_window.setMouseCursorGrabbed(false);
             c_gameState.is_MouseLeave_Pause = L"是";
         }
     }

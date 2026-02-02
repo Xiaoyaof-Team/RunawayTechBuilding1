@@ -17,6 +17,10 @@ public:
     MenuStateMachine c_menuState;
     // 获得全局状态机
     GameStateMachine &c_gameState;
+
+    // 获得视图
+    sf::View &c_camera;
+
 private:
     // 声明纹理贴图
     sf::Texture backgroundTexture;
@@ -44,10 +48,11 @@ private:
     sf::Text Over_ExitText;
 
 public:
-    Menu(GameStateMachine &c_gameState);
+    Menu(GameStateMachine &c_gameState, sf::View &c_camera);
     void Menu_update(sf::RenderWindow &c_window);
     void Menu_draw(sf::RenderWindow& c_window);
     void Menu_loadResources(GameStateMachine &c_gameState);
+    void Menu_UpdateText(GameStateMachine &c_gameState, sf::RenderWindow &c_window);
 
     bool HandleEvent(const sf::Event::KeyPressed &key, sf::RenderWindow &c_window);
     bool HandleEvent(const sf::Event::MouseButtonPressed &mouse, sf::RenderWindow &c_window);
