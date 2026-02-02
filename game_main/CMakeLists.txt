@@ -7,6 +7,8 @@
 cmake_minimum_required(VERSION 3.50)
 project(RunawayDUT353 CXX)
 
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/source-charset:GBK>")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/execution-charset:GBK>")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(FetchContent)
