@@ -38,12 +38,14 @@ public:
     void Close();
 
 private:
+    bool HandleEvent(const sf::Event::Resized & resized);
     bool HandleEvent(const sf::Event::Closed &);
     bool HandleEvent(const sf::Event::MouseButtonPressed & mouse);
     // 处理其余事件
     template <class T>
     bool HandleEvent(const T &) { return false; }
 
+    void UpdateCameraViewPort(uint32_t width, uint32_t height);
     void CreateDefaultWindow();
     void CreateDefaultCamera();
 

@@ -8,7 +8,8 @@
 #include "type.hpp"
 #include "GameStateMachine.hpp"
 
-Menu::Menu(GameStateMachine &c_gameState) : c_gameState(c_gameState),
+Menu::Menu(GameStateMachine &c_gameState , sf::View &c_camera) : c_gameState(c_gameState),
+                                            c_camera(c_camera),
                                             backgroundTexture(), backgroundSprite(backgroundTexture),
                                             titleText(typeface.Black),
                                             MainMenu_StartText(typeface.Bold),
@@ -32,30 +33,14 @@ Menu::Menu(GameStateMachine &c_gameState) : c_gameState(c_gameState),
 
 void Menu::Menu_update(sf::RenderWindow &c_window)
 {
-    switch (c_menuState.currentState)
+    if (c_menuState.currentState != MenuState::None)
     {
-    case MenuState::None:
-        // 不显示任何菜单
-        break;
-    case MenuState::MainMenu:
-        // 更新主菜单选项
-        break;
-    case MenuState::Setting:
-        // 加载最新的设置选项
-        Setting_VolumeText.setString(L"音量 : " + std::to_wstring(c_gameState.Volume) + L" %");
-        Setting_isFullScreenText.setString(L"显示设置 : " + c_gameState.is_FullScreen);
-        Setting_frameRateText.setString(L"帧率限制 : " + c_gameState.Frame_Rate + L" FPS");
-        Setting_isMouseleaveText.setString(L"允许鼠标离开 : " + c_gameState.is_MouseLeave_Pause);
-        Setting_isMousefollowText.setString(L"鼠标跟随视角 : " + c_gameState.is_Mouse_Follow_Camera);
-        break;
-    case MenuState::Pause:
-        // 更新暂停菜单选项
-        break;
-    case MenuState::Over:
-        // 更新游戏结束菜单选项
-        break;
-    default:
-        break;
+        // 更新菜单文本内容
+        Menu_UpdateText(c_gameState, c_window);
+    }
+    else
+    {
+        return; 
     }
 }
 

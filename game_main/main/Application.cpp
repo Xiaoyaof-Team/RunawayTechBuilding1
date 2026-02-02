@@ -9,7 +9,7 @@
 
 // 构造函数
 Application::Application() : c_window(sf::VideoMode({1920, 1080}), "RunawayDUT353"),
-    c_menu(c_gameState)
+    c_menu(c_gameState,c_camera)
 {
     CreateDefaultWindow();
 }
@@ -52,6 +52,13 @@ void Application::Render()
     c_menu.Menu_draw(c_window);
 
     c_window.display();
+}
+
+// 处理窗口调整大小事件
+bool Application::HandleEvent(const sf::Event::Resized & resized)
+{
+    UpdateCameraViewPort(resized.size.x, resized.size.y);
+    return true;
 }
 
 // 处理关闭事件

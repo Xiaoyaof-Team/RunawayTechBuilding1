@@ -6,11 +6,13 @@
  *@ 时间 ： 2026-2-1
  */
 #include "Application.hpp"
+#include "GameStateMachine.hpp"
+#include <string>
 
 void Application::CreateDefaultWindow()
 {
-    // 默认设置帧数为60
-    c_window.setFramerateLimit(60);
+    // 默认设置帧数
+    c_window.setFramerateLimit(std::stoi(c_gameState.Frame_Rate));
     // 禁用按键重复
     c_window.setKeyRepeatEnabled(false);
 
@@ -24,5 +26,7 @@ void Application::CreateDefaultWindow()
 void Application::CreateDefaultCamera()
 {
     c_camera.setSize({1920.f, 1080.f});
-    c_window.setView(c_camera);
+    c_camera.setCenter({960.f, 540.f});
+    auto windowSize = c_window.getSize();
+    UpdateCameraViewPort(windowSize.x, windowSize.y);
 }

@@ -26,6 +26,7 @@ add_executable(game_start
     menu/menu_mouse.cpp
     menu/menu_default.cpp
     menu/menuStateMachine.hpp
+    menu/menu_UpdateText.cpp
     typeface/type.cpp
     typeface/type.hpp
     music/music.cpp
