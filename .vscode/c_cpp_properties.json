@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/game_main/Build/_deps/sfml-src/include",
+                "${workspaceFolder}/game_main/main",
+                "${workspaceFolder}/game_main/menu",
+                "${workspaceFolder}/game_main/music",
+                "${workspaceFolder}/game_main/typeface"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "windows-msvc-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}
