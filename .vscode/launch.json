@@ -1,0 +1,14 @@
+{
+    "version" : "0.2.0",
+    "configurations" : [
+        {
+            "name": "game_start_Debug",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/game_main/Build/Debug/game_start.exe",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "preLaunchTask": "RunawayDUT353"
+        }
+    ]
+}
