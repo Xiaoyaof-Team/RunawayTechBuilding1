@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # RunawayTechBuilding1  
 逃离“踪遗”
 
