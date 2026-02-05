@@ -1,17 +1,17 @@
 /*
- *@ æ–‡ä»¶ ï¼š music.cpp
- *@ æè¿° ï¼š åˆ›å»ºç”Ÿæºåº“
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”ç‹
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼ş £º music.cpp
+ *@ ÃèÊö £º ´´½¨ÉùÔ´¿â
+ *@ ×÷Õß £º Ğ¡¿ÖÁú´óÄ§Íõ
+ *@ Ê±¼ä £º 2026-2-1
  */
 #include "music.hpp"
 
-// æ„é€ å‡½æ•°
+// ¹¹Ôìº¯Êı
 MusicLibrary::MusicLibrary() : backgroundMusic("game_main/music/background/rain.mp3"),
-                 mouseClickBuffer("game_main/music/background/Mouseclick.mp3"),
-                 mouseClickSound(mouseClickBuffer)
+                               mouseClickBuffer("game_main/music/background/Mouseclick.mp3"),
+                               mouseClickSound(mouseClickBuffer)
 {
-    // æ’­æ”¾èƒŒæ™¯éŸ³ä¹
+    // ²¥·Å±³¾°ÒôÀÖ
     backgroundMusic.setVolume(50.f);
     backgroundMusic.setLooping(true);
     backgroundMusic.play();
@@ -19,6 +19,5 @@ MusicLibrary::MusicLibrary() : backgroundMusic("game_main/music/background/rain.
     mouseClickSound.setVolume(20.f);
 }
 
-// åˆ›å»ºéŸ³é¢‘åº“
+// ´´½¨ÒôÆµ¿â
 MusicLibrary c_music;
-

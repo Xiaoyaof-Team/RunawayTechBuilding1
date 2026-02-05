@@ -1,21 +1,21 @@
 /*
- *@ æ–‡ä»¶ ï¼š Application_Update.cpp
- *@ æè¿° ï¼š æ¸¸æˆä¸»ä½“æ¡†æ¶çŠ¶æ€æœºçš„æ›´æ–°
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”ç‹
- *@ è¡¥å…… ï¼š
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼ş £º Application_Update.cpp
+ *@ ÃèÊö £º ÓÎÏ·Ö÷Ìå¿ò¼Ü×´Ì¬»úµÄ¸üĞÂ
+ *@ ×÷Õß £º Ğ¡¿ÖÁú´óÄ§Íõ
+ *@ ²¹³ä £º
+ *@ Ê±¼ä £º 2026-2-1
  */
 #include "Application.hpp"
 
 void Application::UpdateCamera()
 {
-    // SED: åœ¨è¿™é‡Œæ·»åŠ ç›¸æœºæ›´æ–°é€»è¾‘
-    
-    // åº”ç”¨æ›´æ–°åçš„ç›¸æœºè§†å›¾åˆ°çª—å£
+    // SED: ÔÚÕâÀïÌí¼ÓÏà»ú¸üĞÂÂß¼­
+
+    // Ó¦ÓÃ¸üĞÂºóµÄÏà»úÊÓÍ¼µ½´°¿Ú
     c_window.setView(c_camera);
 }
 
-// è‡ªåŠ¨è°ƒæ•´æ¯”ä¾‹
+// ×Ô¶¯µ÷Õû±ÈÀı
 void Application::UpdateCameraViewPort(uint32_t width, uint32_t height)
 {
     float windowRatio = (float)width / (float)height;

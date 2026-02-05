@@ -1,8 +1,8 @@
 /*
- *@ æ–‡ä»¶ ï¼š Application.hpp
- *@ æè¿° ï¼š æ¸¸æˆä¸»ä½“æ¡†æ¶çš„ç±»å£°æ˜
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”ç‹
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼ş £º Application.hpp
+ *@ ÃèÊö £º ÓÎÏ·Ö÷Ìå¿ò¼ÜµÄÀàÉùÃ÷
+ *@ ×÷Õß £º Ğ¡¿ÖÁú´óÄ§Íõ
+ *@ Ê±¼ä £º 2026-2-1
  */
 #pragma once
 #include <iostream>
@@ -10,24 +10,27 @@
 #include "music.hpp"
 #include "menu.hpp"
 #include "GameStateMachine.hpp"
-
+#include "player.hpp"
 class Application
 {
 public:
-    // å£°æ˜æ¸¸æˆçŠ¶æ€æœº (Game State Machine)
+    // ÉùÃ÷ÓÎÏ·×´Ì¬»ú (Game State Machine)
     GameStateMachine c_gameState;
 
 private:
-    // åˆ›å»ºçª—å£
+    // ´´½¨´°¿Ú
     sf::RenderWindow c_window;
-    // åˆ›å»ºæ—¶é—´åˆ»åº¦
+    // ´´½¨Ê±¼ä¿Ì¶È
     sf::Clock deltaTime;
 
-    // åˆ›å»ºç›¸æœº
+    // ´´½¨Ïà»ú
     sf::View c_camera;
 
-    // åˆ›å»ºèœå•
+    // ´´½¨²Ëµ¥
     Menu c_menu;
+
+    // ´´½¨ÈËÎï
+    Player c_player;
 
 public:
     Application();
@@ -38,10 +41,10 @@ public:
     void Close();
 
 private:
-    bool HandleEvent(const sf::Event::Resized & resized);
+    bool HandleEvent(const sf::Event::Resized &resized);
     bool HandleEvent(const sf::Event::Closed &);
-    bool HandleEvent(const sf::Event::MouseButtonPressed & mouse);
-    // å¤„ç†å…¶ä½™äº‹ä»¶
+    bool HandleEvent(const sf::Event::MouseButtonPressed &mouse);
+    // ´¦ÀíÆäÓàÊÂ¼ş
     template <class T>
     bool HandleEvent(const T &) { return false; }
 
