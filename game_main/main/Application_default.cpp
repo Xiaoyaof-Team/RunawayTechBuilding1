@@ -1,9 +1,9 @@
 /*
- *@ æ–‡ä»¶ ï¼š Application_default.cpp
- *@ æè¿° ï¼š æ¸¸æˆä¸»ä½“æ¡†æ¶çš„ç±»é¢„è®¾é…ç½®
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”ç‹
- *@ è¡¥å…… ï¼š
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼ş £º Application_default.cpp
+ *@ ÃèÊö £º ÓÎÏ·Ö÷Ìå¿ò¼ÜµÄÀàÔ¤ÉèÅäÖÃ
+ *@ ×÷Õß £º Ğ¡¿ÖÁú´óÄ§Íõ
+ *@ ²¹³ä £º
+ *@ Ê±¼ä £º 2026-2-1
  */
 #include "Application.hpp"
 #include "GameStateMachine.hpp"
@@ -11,15 +11,15 @@
 
 void Application::CreateDefaultWindow()
 {
-    // é»˜è®¤è®¾ç½®å¸§æ•°
+    // Ä¬ÈÏÉèÖÃÖ¡Êı
     c_window.setFramerateLimit(std::stoi(c_gameState.Frame_Rate));
-    // ç¦ç”¨æŒ‰é”®é‡å¤
+    // ½ûÓÃ°´¼üÖØ¸´
     c_window.setKeyRepeatEnabled(false);
 
-    // å¯ç”¨è‡ªå®šä¹‰ç›¸æœº
+    // ÆôÓÃ×Ô¶¨ÒåÏà»ú
     CreateDefaultCamera();
 
-    // æœ€åè®¾ç½®æ˜¾ç¤ºèœå•ä¸ºä¸»èœå•
+    // ×îºóÉèÖÃÏÔÊ¾²Ëµ¥ÎªÖ÷²Ëµ¥
     c_menu.c_menuState.currentState = MenuState::MainMenu;
 }
 

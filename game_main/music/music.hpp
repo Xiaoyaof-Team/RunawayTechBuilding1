@@ -1,8 +1,8 @@
 /*
- *@ æ–‡ä»¶ ï¼š music.hpp
- *@ æè¿° ï¼š ç”Ÿæºåº“ç±»å£°æ˜
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”ç‹
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼ş £º music.hpp
+ *@ ÃèÊö £º ÉùÔ´¿âÀàÉùÃ÷
+ *@ ×÷Õß £º Ğ¡¿ÖÁú´óÄ§Íõ
+ *@ Ê±¼ä £º 2026-2-1
  */
 #pragma once
 #include "SFML/Audio.hpp"
@@ -10,13 +10,13 @@
 class MusicLibrary
 {
 public:
-    // èƒŒæ™¯éŸ³ä¹
+    // ±³¾°ÒôÀÖ
     sf::Music backgroundMusic;
 
-    // é¼ æ ‡ç‚¹å‡»éŸ³æ•ˆ
+    // Êó±êµã»÷ÒôĞ§
     sf::SoundBuffer mouseClickBuffer;
     sf::Sound mouseClickSound;
-    
+
 public:
     MusicLibrary();
 };

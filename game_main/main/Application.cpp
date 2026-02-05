@@ -1,80 +1,85 @@
 /*
- *@ æ–‡ä»¶ ï¼š Application.cpp
- *@ æè¿° ï¼š æ¸¸æˆä¸»ä½“æ¡†æ¶çš„ç±»æ–¹æ³•çš„å®ç°
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”ç‹
- *@ è¡¥å…… ï¼š
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼ş £º Application.cpp
+ *@ ÃèÊö £º ÓÎÏ·Ö÷Ìå¿ò¼ÜµÄÀà·½·¨µÄÊµÏÖ
+ *@ ×÷Õß £º Ğ¡¿ÖÁú´óÄ§Íõ
+ *@ ²¹³ä £º
+ *@ Ê±¼ä £º 2026-2-1
  */
 #include "Application.hpp"
-
-// æ„é€ å‡½æ•°
+#include <iostream>
+// ¹¹Ôìº¯Êı
 Application::Application() : c_window(sf::VideoMode({1920, 1080}), "RunawayDUT353"),
-    c_menu(c_gameState,c_camera)
+                             c_menu(c_gameState, c_camera)
 {
     CreateDefaultWindow();
+    c_player.init();
 }
 
-// æ£€æŸ¥ç¨‹åºæ˜¯å¦è¿è¡Œ
+// ¼ì²é³ÌĞòÊÇ·ñÔËĞĞ
 bool Application::IsRunning() const
 {
     return c_window.isOpen();
 }
 
-// å¤„ç†äº‹ä»¶
+// ´¦ÀíÊÂ¼ş
 void Application::ProcessEvent()
 {
     c_window.handleEvents([this](const auto &Tevent)
                           {
-    // äº‹ä»¶è¢«å¤„ç†åˆ™è¿”å›trueï¼Œæœªè¢«å¤„ç†åˆ™è¿”å›false
+    // ÊÂ¼ş±»´¦ÀíÔò·µ»Øtrue£¬Î´±»´¦ÀíÔò·µ»Øfalse
     if(this->HandleEvent(Tevent)) return;
     if(this->c_menu.HandleEvent(Tevent, c_window)) return; });
 }
 
-// æ›´æ–°æ¸¸æˆçŠ¶æ€
+// ¸üĞÂÓÎÏ·×´Ì¬
 void Application::Update()
 {
-    // å®šä¹‰æ—¶é—´æ­¥é•¿
+    // ¶¨ÒåÊ±¼ä²½³¤
     auto deltatime = deltaTime.restart().asSeconds();
-    // SED: æ›´æ–°æ¸¸æˆå†…å®¹
-    // æ›´æ–°èœå•çŠ¶æ€
+    // SED: ¸üĞÂÓÎÏ·ÄÚÈİ
+    // ¸üĞÂ²Ëµ¥×´Ì¬
     c_menu.Menu_update(c_window);
-    // æ›´æ–°ç›¸æœº
+    // ¸üĞÂÈËÎï
+    c_player.update(deltatime);
+    // ¸üĞÂÏà»ú
     UpdateCamera();
-
+    // std::cout << c_player.getPosition().x << " " << c_player.getPosition().y << std::endl;
 }
 
-// åˆ·æ–°æ˜¾ç¤ºæ•ˆæœ
+// Ë¢ĞÂÏÔÊ¾Ğ§¹û
 void Application::Render()
 {
     c_window.clear(sf::Color::Black);
-    // SED: æ¸²æŸ“æ¸¸æˆå†…å®¹
-    // æ¸²æŸ“èœå•
+    // SED: äÖÈ¾ÓÎÏ·ÄÚÈİ
+    // äÖÈ¾²Ëµ¥
     c_menu.Menu_draw(c_window);
+
+    c_player.draw(c_window);
 
     c_window.display();
 }
 
-// å¤„ç†çª—å£è°ƒæ•´å¤§å°äº‹ä»¶
-bool Application::HandleEvent(const sf::Event::Resized & resized)
+// ´¦Àí´°¿Úµ÷Õû´óĞ¡ÊÂ¼ş
+bool Application::HandleEvent(const sf::Event::Resized &resized)
 {
     UpdateCameraViewPort(resized.size.x, resized.size.y);
     return true;
 }
 
-// å¤„ç†å…³é—­äº‹ä»¶
+// ´¦Àí¹Ø±ÕÊÂ¼ş
 bool Application::HandleEvent(const sf::Event::Closed &)
 {
     Close();
     return true;
 }
 
-bool Application::HandleEvent(const sf::Event::MouseButtonPressed & mouse)
+bool Application::HandleEvent(const sf::Event::MouseButtonPressed &mouse)
 {
     c_music.mouseClickSound.play();
     return false;
 }
 
-// å…³é—­çª—å£
+// ¹Ø±Õ´°¿Ú
 void Application::Close()
 {
     c_window.close();

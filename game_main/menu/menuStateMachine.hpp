@@ -1,11 +1,11 @@
 /*
- *@ æ–‡ä»¶ ï¼š menuStateMachine.hpp
- *@ æè¿° ï¼š èœå•çŠ¶æ€æœºç±»å£°æ˜
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”ç‹
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼ş £º menuStateMachine.hpp
+ *@ ÃèÊö £º ²Ëµ¥×´Ì¬»úÀàÉùÃ÷
+ *@ ×÷Õß £º Ğ¡¿ÖÁú´óÄ§Íõ
+ *@ Ê±¼ä £º 2026-2-1
  */
 #pragma once
-// æšä¸¾èœå•çŠ¶æ€
+// Ã¶¾Ù²Ëµ¥×´Ì¬
 enum class MenuState
 {
     None = 0,
@@ -18,9 +18,9 @@ enum class MenuState
 class MenuStateMachine
 {
 public:
-    // å£°æ˜èœå•çŠ¶æ€
+    // ÉùÃ÷²Ëµ¥×´Ì¬
     MenuState currentState = MenuState::None;
-    // å£°æ˜ä¸Šä¸€æ¬¡çš„èœå•çŠ¶æ€
-    // ç”¨äºè®¾ç½®æ—¶è¿”å›ä¸»èœå•æˆ–æš‚åœèœå•
+    // ÉùÃ÷ÉÏÒ»´ÎµÄ²Ëµ¥×´Ì¬
+    // ÓÃÓÚÉèÖÃÊ±·µ»ØÖ÷²Ëµ¥»òÔİÍ£²Ëµ¥
     MenuState lastState = MenuState::None;
 };
