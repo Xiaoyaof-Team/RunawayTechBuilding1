@@ -1,8 +1,8 @@
 /*
- *@ æ–‡ä»¶ ï¼š menu.hpp
- *@ æè¿° ï¼š èœå•ç•Œé¢çš„ç±»å£°æ˜
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”ç‹
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼ş £º menu.hpp
+ *@ ÃèÊö £º ²Ëµ¥½çÃæµÄÀàÉùÃ÷
+ *@ ×÷Õß £º Ğ¡¿ÖÁú´óÄ§Íõ
+ *@ Ê±¼ä £º 2026-2-1
  */
 #pragma once
 #include "SFML/Graphics.hpp"
@@ -13,25 +13,25 @@
 class Menu
 {
 public:
-    // å£°æ˜èœå•çŠ¶æ€æœº
+    // ÉùÃ÷²Ëµ¥×´Ì¬»ú
     MenuStateMachine c_menuState;
-    // è·å¾—å…¨å±€çŠ¶æ€æœº
+    // »ñµÃÈ«¾Ö×´Ì¬»ú
     GameStateMachine &c_gameState;
 
-    // è·å¾—è§†å›¾
+    // »ñµÃÊÓÍ¼
     sf::View &c_camera;
 
 private:
-    // å£°æ˜çº¹ç†è´´å›¾
+    // ÉùÃ÷ÎÆÀíÌùÍ¼
     sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
-    // å£°æ˜æ ‡é¢˜
+    // ÉùÃ÷±êÌâ
     sf::Text titleText;
-    // å£°æ˜ä¸»èœå•é€‰é¡¹
+    // ÉùÃ÷Ö÷²Ëµ¥Ñ¡Ïî
     sf::Text MainMenu_StartText;
     sf::Text MainMenu_SettingText;
     sf::Text MainMenu_ExitText;
-    // å£°æ˜è®¾ç½®èœå•é€‰é¡¹
+    // ÉùÃ÷ÉèÖÃ²Ëµ¥Ñ¡Ïî
     sf::Text Setting_VolumeText;
     sf::Text Setting_isFullScreenText;
     sf::Text Setting_frameRateText;
@@ -39,24 +39,24 @@ private:
     sf::Text Setting_isMouseleaveText;
     sf::Text Setting_isMousefollowText;
     sf::Text Setting_BackText;
-    // å£°æ˜æš‚åœèœå•é€‰é¡¹
+    // ÉùÃ÷ÔİÍ£²Ëµ¥Ñ¡Ïî
     sf::Text Pause_ResumeText;
     sf::Text Pause_SettingText;
     sf::Text Pause_ExitText;
-    // å£°æ˜æ¸¸æˆç»“æŸèœå•é€‰é¡¹
+    // ÉùÃ÷ÓÎÏ·½áÊø²Ëµ¥Ñ¡Ïî
     sf::Text Over_RestartText;
     sf::Text Over_ExitText;
 
 public:
     Menu(GameStateMachine &c_gameState, sf::View &c_camera);
     void Menu_update(sf::RenderWindow &c_window);
-    void Menu_draw(sf::RenderWindow& c_window);
+    void Menu_draw(sf::RenderWindow &c_window);
     void Menu_loadResources(GameStateMachine &c_gameState);
     void Menu_UpdateText(GameStateMachine &c_gameState, sf::RenderWindow &c_window);
 
     bool HandleEvent(const sf::Event::KeyPressed &key, sf::RenderWindow &c_window);
     bool HandleEvent(const sf::Event::MouseButtonPressed &mouse, sf::RenderWindow &c_window);
-    void handle_setting_change(const sf::Event::MouseButtonPressed &mouse, sf::RenderWindow & c_window);
+    void handle_setting_change(const sf::Event::MouseButtonPressed &mouse, sf::RenderWindow &c_window);
     template <class T>
     bool HandleEvent(const T &, sf::RenderWindow &c_window) { return false; }
 };

@@ -12,7 +12,7 @@
 void Menu::Menu_loadResources(GameStateMachine &c_gameState)
 {
     // 加载背景纹理
-    backgroundTexture.loadFromFile("game_main/Picture/menu/background.png");
+    backgroundTexture.loadFromFile("game_main/picture/scene/startroom.png");
     backgroundSprite.setTexture(backgroundTexture);
 
     // 设置标题文本
@@ -99,4 +99,7 @@ void Menu::Menu_loadResources(GameStateMachine &c_gameState)
     Over_ExitText.setCharacterSize(40);
     Over_ExitText.setFillColor(sf::Color(255, 255, 255, 150));
     Over_ExitText.setPosition({30.f, 400.f});
+
+    backgroundSprite.setTexture(backgroundTexture, true);
+    backgroundSprite.setScale({1.25f, 1.054f}); // 加上大括号，变成一个 Vector2f
 }
