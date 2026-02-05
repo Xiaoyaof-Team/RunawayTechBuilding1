@@ -9,7 +9,7 @@
 #include "Application.hpp"
 
 Player::Player()
-    : position(200.0f, 200.0f),
+    : position(0.0f, 0.0f),
       speed(100.0f),
       timing(0.0f),
       changeTime(0.2f),
@@ -20,7 +20,7 @@ Player::Player()
 
 {
 
-    sprite.setTexture(textures[1]);
+    sprite.setTexture(textures[0]);
 }
 
 std::array<sf::Texture, 6> Player::loadPlayerTextures()
@@ -42,9 +42,6 @@ std::array<sf::Texture, 6> Player::loadPlayerTextures()
 void Player::init()
 {
 
-    sprite.setTexture(textures[1]);
-
-    sprite.setScale({0.125f, 0.125f});
     // sf::Vector2u texSize = textures[1].getSize();
     // std::cout << "Texture[1] real size: " << texSize.x << "x" << texSize.y << std::endl;
 
@@ -54,7 +51,10 @@ void Player::init()
     // 计算几何中心，有AI参与
     auto size = sf::Vector2f(textures[0].getSize());
     sprite.setOrigin({size.x / 2.f, size.y / 2.f});
+    position = {950.0f, 670.0f};
     sprite.setPosition(position);
+    sprite.setTexture(textures[4]);
+    sprite.setScale({scale, scale});
 }
 
 void Player::draw(sf::RenderWindow &window)
