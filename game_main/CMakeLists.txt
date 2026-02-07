@@ -1,14 +1,11 @@
 # ================================================
 #文件：CMakeLists.txt
 #说明：项目CMake的主配置文件，拉取SFML库并配置项目编译选项
-#作者：小恐龙大魔王
 #最后更新：2026-2-5
 # ================================================
 cmake_minimum_required(VERSION 3.50)
 project(RunawayDUT353 CXX)
 
-add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/source-charset:GBK>")
-add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/execution-charset:GBK>")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if(MSVC)
@@ -43,6 +40,16 @@ add_executable(game_start
     player/player.hpp
 )
 
-target_include_directories(game_start PRIVATE main menu typeface music player)
+add_subdirectory(scene/normity)
+add_subdirectory(scene/abnormity)
+
+target_include_directories(game_start PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/main 
+    ${CMAKE_CURRENT_SOURCE_DIR}/menu 
+    ${CMAKE_CURRENT_SOURCE_DIR}/typeface 
+    ${CMAKE_CURRENT_SOURCE_DIR}/music 
+    ${CMAKE_CURRENT_SOURCE_DIR}/player 
+)
+
 target_compile_features(game_start PRIVATE cxx_std_20)
 target_link_libraries(game_start PRIVATE SFML::Graphics SFML::Audio)

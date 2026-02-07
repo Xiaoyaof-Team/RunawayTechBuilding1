@@ -12,11 +12,11 @@
 void Menu::Menu_loadResources(GameStateMachine &c_gameState)
 {
     // 加载背景纹理
-    backgroundTexture.loadFromFile("game_main/picture/scene/startroom.png");
-    backgroundSprite.setTexture(backgroundTexture);
+    // backgroundTexture.loadFromFile();
+    // backgroundSprite.setTexture(backgroundTexture);
 
     // 设置标题文本
-    titleText.setString(L"逃离\n综一353");
+    titleText.setString(L"逃离\n踪遗");
     titleText.setCharacterSize(72);
     titleText.setFillColor(sf::Color(255, 255, 255, 255));
     titleText.setPosition({0.f, 0.f}); // 设置标题位置

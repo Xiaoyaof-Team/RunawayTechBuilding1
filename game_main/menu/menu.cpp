@@ -8,25 +8,25 @@
 #include "type.hpp"
 #include "GameStateMachine.hpp"
 
-Menu::Menu(GameStateMachine &c_gameState , sf::View &c_camera) : c_gameState(c_gameState),
-                                            c_camera(c_camera),
-                                            backgroundTexture(), backgroundSprite(backgroundTexture),
-                                            titleText(typeface.Black),
-                                            MainMenu_StartText(typeface.Bold),
-                                            MainMenu_SettingText(typeface.Bold),
-                                            MainMenu_ExitText(typeface.Bold),
-                                            Setting_VolumeText(typeface.Bold),
-                                            Setting_isFullScreenText(typeface.Bold),
-                                            Setting_frameRateText(typeface.Bold),
-                                            Setting_zoomText(typeface.Bold),
-                                            Setting_isMouseleaveText(typeface.Bold),
-                                            Setting_isMousefollowText(typeface.Bold),
-                                            Setting_BackText(typeface.Bold),
-                                            Pause_ResumeText(typeface.Bold),
-                                            Pause_SettingText(typeface.Bold),
-                                            Pause_ExitText(typeface.Bold),
-                                            Over_RestartText(typeface.Bold),
-                                            Over_ExitText(typeface.Bold)
+Menu::Menu(GameStateMachine &c_gameState, sf::View &c_camera) : c_gameState(c_gameState),
+                                                                c_camera(c_camera),
+                                                                backgroundTexture(), backgroundSprite(backgroundTexture),
+                                                                titleText(typeface.Black),
+                                                                MainMenu_StartText(typeface.Bold),
+                                                                MainMenu_SettingText(typeface.Bold),
+                                                                MainMenu_ExitText(typeface.Bold),
+                                                                Setting_VolumeText(typeface.Bold),
+                                                                Setting_isFullScreenText(typeface.Bold),
+                                                                Setting_frameRateText(typeface.Bold),
+                                                                Setting_zoomText(typeface.Bold),
+                                                                Setting_isMouseleaveText(typeface.Bold),
+                                                                Setting_isMousefollowText(typeface.Bold),
+                                                                Setting_BackText(typeface.Bold),
+                                                                Pause_ResumeText(typeface.Bold),
+                                                                Pause_SettingText(typeface.Bold),
+                                                                Pause_ExitText(typeface.Bold),
+                                                                Over_RestartText(typeface.Bold),
+                                                                Over_ExitText(typeface.Bold)
 {
     Menu_loadResources(c_gameState);
 }
@@ -40,7 +40,7 @@ void Menu::Menu_update(sf::RenderWindow &c_window)
     }
     else
     {
-        return; 
+        return;
     }
 }
 

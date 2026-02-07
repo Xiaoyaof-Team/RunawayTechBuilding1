@@ -10,7 +10,8 @@
 void Application::UpdateCamera()
 {
     // SED: 在这里添加相机更新逻辑
-
+    // 设置相机中心为人物位置
+    c_camera.setCenter(c_player.getPosition() - sf::Vector2f(0.f, 100.f)); // 假设人物中心在精灵的中心
     // 应用更新后的相机视图到窗口
     c_window.setView(c_camera);
 }
@@ -37,5 +38,6 @@ void Application::UpdateCameraViewPort(uint32_t width, uint32_t height)
     }
 
     c_camera.setViewport(sf::FloatRect({posX, posY}, {sizeX, sizeY}));
+    c_uiView.setViewport(sf::FloatRect({posX, posY}, {sizeX, sizeY}));
     c_window.setView(c_camera);
 }

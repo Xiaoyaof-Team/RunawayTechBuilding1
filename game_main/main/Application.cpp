@@ -9,10 +9,16 @@
 #include <iostream>
 // 构造函数
 Application::Application() : c_window(sf::VideoMode({1920, 1080}), "RunawayDUT353"),
-                             c_menu(c_gameState, c_camera)
+                             c_menu(c_gameState, c_camera),
+                             c_scene(c_gameState, c_player),
+                             c_gameState(),
+                             c_allAbnormity(&c_scene)
 {
     CreateDefaultWindow();
     c_player.init();
+    // SED::设置初始场景状态
+    c_allAbnormity.currentAbnormity->scene_set();
+    c_allAbnormity.currentAbnormity->classroom_player_set_first();
 }
 
 // 检查程序是否运行
@@ -28,7 +34,10 @@ void Application::ProcessEvent()
                           {
     // 事件被处理则返回true，未被处理则返回false
     if(this->HandleEvent(Tevent)) return;
-    if(this->c_menu.HandleEvent(Tevent, c_window)) return; });
+    // 处理菜单事件前切换到 UI 视图
+    this->c_window.setView(this->c_uiView);
+    if(this->c_menu.HandleEvent(Tevent, c_window)) return; 
+    if(this->c_allAbnormity.currentAbnormity->HandleEvent(Tevent)) return; });
 }
 
 // 更新游戏状态
@@ -37,13 +46,18 @@ void Application::Update()
     // 定义时间步长
     auto deltatime = deltaTime.restart().asSeconds();
     // SED: 更新游戏内容
-    // 更新菜单状态
+    // 更新菜单状态前切换到 UI 视图
+    c_window.setView(c_uiView);
     c_menu.Menu_update(c_window);
     // 更新人物
     c_player.update(deltatime);
-    // 更新相机
+    // SED::
+    // std::cout << "Player Position: " << c_player.getPosition().x << ", " << c_player.getPosition().y << std::endl;
+    //  更新相机
     UpdateCamera();
-    // std::cout << c_player.getPosition().x << " " << c_player.getPosition().y << std::endl;
+    // SED::更新场景状态
+    c_allAbnormity.checkAnswer();
+    c_allAbnormity.currentAbnormity->scene_update();
 }
 
 // 刷新显示效果
@@ -51,10 +65,15 @@ void Application::Render()
 {
     c_window.clear(sf::Color::Black);
     // SED: 渲染游戏内容
-    // 渲染菜单
-    c_menu.Menu_draw(c_window);
-
+    c_window.setView(c_camera);
+    // SED::
+    c_allAbnormity.currentAbnormity->scene_draw(c_window);
     c_player.draw(c_window);
+    c_allAbnormity.currentAbnormity->scene_draw_2(c_window);
+
+    // 渲染菜单 (使用固定的 UI 视图)
+    c_window.setView(c_uiView);
+    c_menu.Menu_draw(c_window);
 
     c_window.display();
 }

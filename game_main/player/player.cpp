@@ -16,7 +16,7 @@ Player::Player()
       currentFrame(1),
       textures(loadPlayerTextures()),
       sprite(textures[0]),
-      scale(0.125f)
+      scale(0.18f)
 
 {
 
@@ -113,4 +113,33 @@ void Player::update(float deltaTime)
 sf::Vector2f Player::getPosition() const
 {
     return position;
+}
+
+sf::FloatRect Player::getGlobalBounds()
+{
+    // 获取当前精灵的全局边界
+    sf::FloatRect hitbox = sprite.getGlobalBounds();
+    return hitbox;
+}
+
+void Player::setPosition(const sf::Vector2f &newPosition)
+{
+    position = newPosition;
+    sprite.setPosition(position);
+}
+
+sf::Vector2f Player::getSize() const
+{
+    sf::IntRect rect = sprite.getTextureRect();
+    return sf::Vector2f(rect.size.x * scale, rect.size.y * scale);
+}
+
+void Player::setDirection_left()
+{
+    sprite.setScale({scale, scale});
+}
+
+void Player::setDirection_right()
+{
+    sprite.setScale({-scale, scale});
 }
