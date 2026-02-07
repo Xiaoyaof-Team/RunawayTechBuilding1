@@ -11,11 +11,17 @@
 #include "menu.hpp"
 #include "GameStateMachine.hpp"
 #include "player.hpp"
+#include "scene.hpp"
+#include "AllAbnormity.hpp"
+#include "abnormity.hpp"
+
 class Application
 {
 public:
     // 声明游戏状态机 (Game State Machine)
     GameStateMachine c_gameState;
+    // 声明异常管理类
+    AllAbnormity c_allAbnormity;
 
 private:
     // 创建窗口
@@ -25,12 +31,16 @@ private:
 
     // 创建相机
     sf::View c_camera;
+    sf::View c_uiView;
 
     // 创建菜单
     Menu c_menu;
 
     // 创建人物
     Player c_player;
+
+    // SED::创建场景
+    Scene c_scene;
 
 public:
     Application();

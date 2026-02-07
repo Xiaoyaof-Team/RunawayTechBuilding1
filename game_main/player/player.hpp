@@ -31,6 +31,20 @@ public:
     // 获取位置
     sf::Vector2f getPosition() const;
 
+    // SED:新增需要的函数
+    // 设置位置
+    void setPosition(const sf::Vector2f &newPosition);
+
+    // 获得碰撞箱
+    sf::FloatRect getGlobalBounds();
+
+    // 获得尺寸
+    sf::Vector2f getSize() const;
+
+    // 设置人物朝向
+    void setDirection_left();
+    void setDirection_right();
+
 private:
     float speed;
     sf::Vector2f position;

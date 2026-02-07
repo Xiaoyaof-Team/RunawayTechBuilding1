@@ -27,6 +27,11 @@ void Application::CreateDefaultCamera()
 {
     c_camera.setSize({1920.f, 1080.f});
     c_camera.setCenter({960.f, 540.f});
+    
+
+    c_uiView.setSize({1920.f, 1080.f});
+    c_uiView.setCenter({960.f, 540.f});
+
     auto windowSize = c_window.getSize();
     UpdateCameraViewPort(windowSize.x, windowSize.y);
 }
