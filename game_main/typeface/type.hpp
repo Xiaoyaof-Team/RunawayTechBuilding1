@@ -1,8 +1,8 @@
 /*
- *@ æ–‡ä»¶ ï¼š type.hpp
- *@ æè¿° ï¼š å­—ä½“çš„ç±»å£°æ˜Žï¼Œå¼•å…¥å­—ä½“æ–‡ä»¶
- *@ ä½œè€… ï¼š å°æé¾™å¤§é­”çŽ‹
- *@ æ—¶é—´ ï¼š 2026-2-1
+ *@ ÎÄ¼þ £º type.hpp
+ *@ ÃèÊö £º ×ÖÌåµÄÀàÉùÃ÷£¬ÒýÈë×ÖÌåÎÄ¼þ
+ *@ ×÷Õß £º Ð¡¿ÖÁú´óÄ§Íõ
+ *@ Ê±¼ä £º 2026-2-1
  */
 #pragma once
 #include "SFML/Graphics.hpp"

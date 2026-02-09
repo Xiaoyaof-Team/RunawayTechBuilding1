@@ -6,17 +6,17 @@
  */
 
 #include "player.hpp"
-#include "Application.hpp"
-
+#include <iostream>
 Player::Player()
     : position(0.0f, 0.0f),
-      speed(100.0f),
+      speed(500.0f),
       timing(0.0f),
       changeTime(0.2f),
       currentFrame(1),
       textures(loadPlayerTextures()),
       sprite(textures[0]),
-      scale(0.18f)
+      scale(0.18f),
+      moving(0)
 
 {
 
@@ -42,15 +42,10 @@ std::array<sf::Texture, 6> Player::loadPlayerTextures()
 void Player::init()
 {
 
-    // sf::Vector2u texSize = textures[1].getSize();
-    // std::cout << "Texture[1] real size: " << texSize.x << "x" << texSize.y << std::endl;
-
-    // sf::IntRect rect = sprite.getTextureRect();
-    // std::cout << "Sprite Size: " << rect.size.x << " x " << rect.size.y << std::endl;
-
     // 计算几何中心，有AI参与
     auto size = sf::Vector2f(textures[0].getSize());
     sprite.setOrigin({size.x / 2.f, size.y / 2.f});
+
     position = {950.0f, 670.0f};
     sprite.setPosition(position);
     sprite.setTexture(textures[4]);
@@ -62,51 +57,60 @@ void Player::draw(sf::RenderWindow &window)
     window.draw(sprite);
 }
 
-void Player::update(float deltaTime)
+void Player::update(float deltaTime, MenuState state)
 {
-    sf::Vector2f movement(0.f, 0.f);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
-        movement.x -= 1.f;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
-        movement.x += 1.f;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
-        movement.y += 1.f;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
-        movement.y -= 1.f;
-
-    if (movement != sf::Vector2f(0.0f, 0.0f))
+    if (state == MenuState::None)
     {
-        movement = movement.normalized(); // 防止斜着超速
-        position += movement * speed * deltaTime;
+        sf::Vector2f movement(0.f, 0.f);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+            movement.x -= 1.f;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+            movement.x += 1.f;
+        // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
+        //    movement.y += 1.f;
+        // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
+        //     movement.y -= 1.f;
 
-        // 动画切换时间计算
-        timing += deltaTime;
-        if (timing >= changeTime)
+        if (movement != sf::Vector2f(0.0f, 0.0f))
         {
-            timing = 0.0f;
-            currentFrame = (currentFrame + 1) % 3;
-            sprite.setTexture(textures[currentFrame]);
-        }
+            if (moving == 0)
+            {
+                sprite.setTexture(textures[0]);
+                moving = 1;
+            }
+            movement = movement.normalized(); // 防止斜着超速
+            position += movement * speed * deltaTime;
 
-        // 动画切换
-        if (movement.x > 0.f)
-        {
-            // 向右
-            sprite.setScale({-scale, scale});
-        }
-        else if (movement.x < 0.f)
-        {
-            // 向左
-            sprite.setScale({scale, scale});
-        }
+            // 动画切换时间计算
+            timing += deltaTime;
+            if (timing >= changeTime)
+            {
+                timing = 0.0f;
+                currentFrame = (currentFrame + 1) % 3;
+                sprite.setTexture(textures[currentFrame]);
+            }
 
-        sprite.setPosition(position);
-    }
-    else
-    {
-        // 静止
-        currentFrame = 0;
-        sprite.setTexture(textures[1]);
+            // 动画切换
+            if (movement.x > 0.f)
+            {
+                // 向右
+                Player::setDirection_right();
+            }
+            else if (movement.x < 0.f)
+            {
+                // 向左
+                Player::setDirection_left();
+            }
+
+            sprite.setPosition(position);
+        }
+        else
+        {
+            // 静止
+            currentFrame = 0;
+            moving = 0;
+            sprite.setTexture(textures[1]);
+        }
     }
 }
 
