@@ -4,13 +4,13 @@
  *@ 作者 ： 逍遥风鉴事
  *@ 时间 ： 2026-2-4
  */
+#pragma once
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
-
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <vector>
-
+#include "menu.hpp"
 class Player
 {
 public:
@@ -20,7 +20,7 @@ public:
     void init();
 
     // 角色计算
-    void update(float deltaTime);
+    void update(float deltaTime, MenuState state);
 
     // 角色更新
     void draw(sf::RenderWindow &window);
@@ -56,6 +56,7 @@ private:
     float changeTime; // 动画切换时间
     float timing;
     float scale;
+    int moving;
 
 private:
     // 加载角色贴图

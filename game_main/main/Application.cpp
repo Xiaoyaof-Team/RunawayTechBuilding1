@@ -50,7 +50,7 @@ void Application::Update()
     c_window.setView(c_uiView);
     c_menu.Menu_update(c_window);
     // 更新人物
-    c_player.update(deltatime);
+    c_player.update(deltatime, c_menu.c_menuState.currentState);
     // SED::
     // std::cout << "Player Position: " << c_player.getPosition().x << ", " << c_player.getPosition().y << std::endl;
     //  更新相机
