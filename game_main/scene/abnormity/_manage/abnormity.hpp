@@ -32,10 +32,9 @@ public:
     virtual void scene_draw_2(sf::RenderWindow &c_window);
     // 初始教室背景基础设置，包含背景贴图的位置，讲台元素的位置，时钟配置的调用，只在游戏最开始（从桌子醒来）时调用
     virtual void classroom_set_first();
-    // 初始角色位置设置，只在游戏最开始（从桌子醒来）时调用
-    virtual void classroom_player_set_first();
     // 教室背景设置，包含背景贴图的位置，讲台元素的位置，时钟配置的调用（注意额外元素中只有讲台贴图在这里被设置，下面的set函数均会将除背景外的其他set函数单独实现，只在场景set中像这里的时钟一样被调用）
     virtual void classroom_set();
+    virtual void classroom_background_set();
     // 进入教室后人物的位置设置，默认位置查询具体实现，面向左边
     virtual void classroom_player_set();
     // 时钟的设置，包含位置
@@ -54,12 +53,15 @@ public:
     virtual bool HandleEvent_Classroom_ondesk(const sf::Event::KeyPressed &key);
     // 处理与教室门交互的事件，默认按下W键交互，交互成功进入走廊场景
     virtual bool HandleEvent_Classroom_ondoor(const sf::Event::KeyPressed &key);
+    virtual bool isplayerwithclassroom_desk();
+    virtual bool isplayerwithclassroom_door();
     // 与讲台交互的事件，用于生成交互提示文字
     virtual void on_classroom_desk();
     // 空实现
     virtual void on_classroom_door();
     // 讲台场景的设置，包含背景贴图的位置
     virtual void classroom_desk_set();
+    virtual void classroom_desk_background_set();
     // 从讲台场景返回教室场景时人物位置的重置，默认位置是进入讲台场景时的位置
     virtual void classroom_desk_player_reset();
     // 讲台场景的更新，约等于空实现
@@ -76,6 +78,7 @@ public:
     virtual void on_classroom_desk_text();
     // 下面的set都是元素设置，逻辑同上教室中的命名规则
     virtual void corridor_set();
+    virtual void corridor_background_set();
     virtual void corridor_doorleft_set();
     virtual void corridor_doorright_set();
     virtual void corridor_flower_set();
@@ -104,12 +107,43 @@ public:
     virtual bool HandleEvent_Corridor_onnotionboard(const sf::Event::KeyPressed &key);
     virtual bool HandleEvent_Corridor_ontoilotman(const sf::Event::KeyPressed &key);
     virtual bool HandleEvent_Corridor_ontoilotwoman(const sf::Event::KeyPressed &key);
+    virtual bool HandleEvent_Corridor_onflower(const sf::Event::KeyPressed &key);
+    virtual bool HandleEvent_Corridor_onflower_1(const sf::Event::KeyPressed &key);
+    virtual bool HandleEvent_Corridor_onflower2(const sf::Event::KeyPressed &key);
+    virtual bool HandleEvent_Corridor_oncabinet(const sf::Event::KeyPressed &key);
+    virtual bool HandleEvent_Corridor_oncabinet_1(const sf::Event::KeyPressed &key);
+    virtual bool HandleEvent_Corridor_onclock(const sf::Event::KeyPressed &key);
+    virtual bool isplayerwithcorridor_doorleft();
+    virtual bool isplayerwithcorridor_doorright();
+    virtual bool isplayerwithcorridor_notionboard();
+    virtual bool isplayerwithcorridor_toilotman();
+    virtual bool isplayerwithcorridor_toilotwoman();
+    virtual bool isplayerwithcorridor_stairleft();
+    virtual bool isplayerwithcorridor_stairright();
+    virtual bool isplayerwithcorridor_flower();
+    virtual bool isplayerwithcorridor_flower_1();
+    virtual bool isplayerwithcorridor_flower2();
+    virtual bool isplayerwithcorridor_cabinet();
+    virtual bool isplayerwithcorridor_cabinet_1();
+    virtual bool isplayerwithcorridor_clock();
     // 与走廊交互的事件，用于生成交互提示文字
     virtual void on_corridor_notion_board();
     // 与走廊交互的事件，用于生成交互提示文字
     virtual void on_corridor_stair_left();
     // 与走廊交互的事件，用于生成交互提示文字
     virtual void on_corridor_stair_right();
+    // 增加大量空实现
+    virtual void on_corridor_flower();
+    virtual void on_corridor_flower_1();
+    virtual void on_corridor_flower2();
+    virtual void on_corridor_cabinet();
+    virtual void on_corridor_cabinet_1();
+    virtual void on_corridor_toilotman();
+    virtual void on_corridor_toilotwoman();
+    virtual void on_corridor_door_left();
+    virtual void on_corridor_door_right();
+    // 获得当前剩余关卡时钟显示
+    virtual void on_corridor_clock();
     // 与走廊交互的事件，默认按下W键交互，交互成功更改answer值用于实现楼梯左右选择是否正确
     virtual bool HandleEvent_Corridor_stairleft(const sf::Event::KeyPressed &key);
     virtual bool HandleEvent_Corridor_stairright(const sf::Event::KeyPressed &key);
@@ -119,6 +153,7 @@ public:
     virtual void corridor_draw_2(sf::RenderWindow &c_window);
     // 布告牌游戏规则页面的设置
     virtual void rule_set();
+    virtual void rule_background_set();
     // 依旧是设置角色回到初始位置
     virtual void rule_player_reset();
     virtual void rule_update();
@@ -130,6 +165,7 @@ public:
     virtual void on_rule();
     // 下面是卫生间的设置，命名规则同上
     virtual void toilot_set();
+    virtual void toilot_background_set();
     virtual void toilot_door_set();
     virtual void toilot_wash_basin_set();
     virtual void toilot_mirror_set();
@@ -141,9 +177,15 @@ public:
     virtual void toilot_draw_2(sf::RenderWindow &window);
     virtual bool HandleEvent_Toilot_ondoor(const sf::Event::KeyPressed &key);
     virtual bool HandleEvent_Toilot_onmirror(const sf::Event::KeyPressed &key);
+    virtual bool HandleEvent_Toilot_onwashbasin(const sf::Event::KeyPressed &key);
+    virtual bool HandleEvent_Toilot_onlid(const sf::Event::KeyPressed &key);
     virtual void on_toilot_mirror();
+    virtual void on_toilot_wash_basin();
+    virtual void on_toilot_door();
+    virtual void on_toilot_lid();
     // 镜子场景的设置
     virtual void mirror_set();
+    virtual void mirror_background_set();
     virtual void mirror_player_reset();
     virtual void mirror_text_set();
     virtual void mirror_update();
@@ -151,6 +193,11 @@ public:
     virtual void mirror_draw_2(sf::RenderWindow &window);
     virtual void switch_MirrorToToilot();
     virtual bool HandleEvent_Mirror_on(const sf::Event::KeyPressed &key);
+
+    bool isplayerwithtoilot_door();
+    bool isplayerwithtoilot_mirror();
+    bool isplayerwithtoilot_washbasin();
+    bool isplayerwithtoilot_lid();
     // 场景切换函数
     virtual void switchscene(SceneState newScene);
     // 左右边缘碰撞检测函数，防止出界

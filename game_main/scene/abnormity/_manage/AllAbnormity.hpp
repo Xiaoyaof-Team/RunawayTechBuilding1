@@ -23,7 +23,6 @@ public:
     std::random_device rd;         // 随机数生成器
     std::mt19937 gen;              // 随机数引擎
     int currentAbnormityIndex = 0; // 当前异常索引
-    int statistics_levels = 13;    // 统计当前游戏状态，默认还剩13关
 
 public:
     AllAbnormity(Scene *scene);

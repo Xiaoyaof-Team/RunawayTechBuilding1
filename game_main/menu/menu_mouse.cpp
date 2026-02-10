@@ -227,5 +227,3 @@ void Menu::handle_setting_change(const sf::Event::MouseButtonPressed &mouse, sf:
         }
     }
 }
-
-// SED: 悬停事件待处理

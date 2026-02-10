@@ -22,32 +22,19 @@ void Scene::classroom_set_first()
     classroom_clock_set();
 }
 
-void Scene::classroom_player_set_first()
-{
-    // 已经移动到player.cpp
-    // c_player.setPosition({1327.82, 1023.02});
-}
-
-void Scene::classroom_set()
+void Scene::classroom_background_set()
 {
     // 设置教室场景初始状态
     c_classroom.background_sprite.setPosition({0.f, 0.f});
     c_classroom.background_sprite.setScale({1.6f, 1.6f});
     c_classroom.desk_sprite.setPosition({430.f, 970.f});
     c_classroom.desk_sprite.setScale({1.3f, 1.3f});
-    classroom_clock_set();
 }
 
 void Scene::classroom_player_set()
 {
     c_player.setPosition({2249.16, 1023.02});
     c_player.setDirection_left();
-}
-
-void Scene::classroom_update()
-{
-    on_classroom_desk();
-    on_classroom_door();
 }
 
 void Scene::on_classroom_desk()
@@ -70,7 +57,7 @@ void Scene::on_classroom_desk()
 bool Scene::HandleEvent_Classroom_ondesk(const sf::Event::KeyPressed &key)
 {
     // 处理与讲台交互的按键事件
-    if (key.code == sf::Keyboard::Key::E && c_player.getGlobalBounds().contains(c_classroom.desk_sprite.getGlobalBounds().getCenter() + sf::Vector2f(0.f, -50.f)))
+    if (key.code == sf::Keyboard::Key::E)
     {
         switch_ClassroomToDesk();
         return true;
@@ -84,18 +71,10 @@ void Scene::switch_ClassroomToDesk()
     switchscene(SceneState::Classroom_desk);
 }
 
-void Scene::on_classroom_door()
-{
-    if (c_player.getPosition().x > 2150)
-    {
-        // 默认没有刷新事件
-    }
-}
-
 bool Scene::HandleEvent_Classroom_ondoor(const sf::Event::KeyPressed &key)
 {
     // 处理与教室门交互的按键事件
-    if (key.code == sf::Keyboard::Key::W && c_player.getPosition().x > 2150)
+    if (key.code == sf::Keyboard::Key::W)
     {
         switch_ClassroomToCorridor();
         return true;
@@ -109,16 +88,14 @@ void Scene::switch_ClassroomToCorridor()
     corridor_player_set_fromclassroomleft();
 }
 
-void Scene::classroom_draw(sf::RenderWindow &c_window)
+bool Scene::isplayerwithclassroom_desk()
 {
-    // 绘制教室背景
-    c_window.draw(c_classroom.background_sprite);
-    c_window.draw(c_classroom.clock_sprite);
+    // 判断玩家是否与讲台发生交互
+    return c_player.getGlobalBounds().contains(c_classroom.desk_sprite.getGlobalBounds().getCenter() + sf::Vector2f(0.f, -50.f));
 }
 
-void Scene::classroom_draw_2(sf::RenderWindow &c_window)
+bool Scene::isplayerwithclassroom_door()
 {
-    // 绘制教室课桌
-    c_window.draw(c_classroom.desk_sprite);
-    c_window.draw(text_desk);
+    // 判断玩家是否与教室门发生交互
+    return c_player.getPosition().x > 2150;
 }
