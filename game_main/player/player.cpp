@@ -124,6 +124,7 @@ void Player::startgame(sf::RenderWindow &window)
         position = {1327.82, 1023.02};
 
         sprite.setTexture(textures[5]);
+
         this->draw(window);
         window.display();
 
@@ -138,23 +139,25 @@ void Player::startgame(sf::RenderWindow &window)
         window.display();
 
         sf::sleep(sf::seconds(2.0f));
-        position = {1407.82, 1023.02};
+        // position = {1407.82, 1023.02};
         sprite.setPosition(position);
         this->draw(window);
         window.display();
 
         sf::sleep(sf::seconds(2.0f));
-        position = {1487.82, 1023.02};
+        // position = {1487.82, 1023.02};
         sprite.setPosition(position);
         this->draw(window);
         window.display();
 
         sf::sleep(sf::seconds(2.0f));
+        // position = {1567.82, 1023.02};
+        sprite.setPosition(position);
+        this->draw(window);
+        window.display();
+
         position = {1567.82, 1023.02};
         sprite.setPosition(position);
-        this->draw(window);
-        window.display();
-
         this->playerState = 1;
     }
 }
