@@ -44,12 +44,14 @@ public:
     sf::Text text_desk; // 作用于与讲台交互的文字
 
     sf::Text notion_board_text; // 作用于公告栏的文字
+    sf::Text clock_text;        // 作用于时钟的文字
     sf::Text mirror_text;
     sf::Text mirror_intext;      // 作用于玩家说话的文字
     sf::Text player_word;        // 作用于玩家说话的文字
     sf::Clock player_word_clock; // 玩家说话文字的计时器
 
-    int answer = 0; // 记录走了哪边
+    int answer = 0;               // 记录走了哪边
+    static int statistics_levels; // 统计当前游戏状态，默认时钟指向12
 
 private:
 public:
@@ -58,39 +60,33 @@ public:
                                                              text_desk(typeface.Bold),
                                                              notion_board_text(typeface.Bold),
                                                              mirror_text(typeface.Bold),
+                                                             clock_text(typeface.Bold),
                                                              mirror_intext(typeface.Bold),
                                                              player_word(typeface.Regular),
                                                              currentSceneBackground(&c_classroom.background_sprite)
     {
     }
     void classroom_set_first();
-    void classroom_player_set_first();
 
-    void classroom_set();
+    void classroom_background_set();
     void classroom_player_set();
     void classroom_clock_set();
-    void classroom_update();
-    void classroom_draw(sf::RenderWindow &c_window);
-    void classroom_draw_2(sf::RenderWindow &c_window);
     void switch_ClassroomToCorridor();
     void switch_ClassroomToDesk();
     bool HandleEvent_Classroom_ondesk(const sf::Event::KeyPressed &key);
     bool HandleEvent_Classroom_ondoor(const sf::Event::KeyPressed &key);
+    // 判断是否发生交互
+    bool isplayerwithclassroom_desk();
+    bool isplayerwithclassroom_door();
 
     void on_classroom_desk();
-    void on_classroom_door();
 
-    void classroom_desk_set();
+    void classroom_desk_background_set();
     void classroom_desk_player_reset();
-    void classroom_desk_update();
-    void classroom_desk_draw(sf::RenderWindow &c_window);
-    void classroom_desk_draw_2(sf::RenderWindow &c_window);
     void switch_DeskToClassroom();
     bool HandleEvent_Classroom_desk_on(const sf::Event::KeyPressed &key);
 
-    void on_classroom_desk_text();
-
-    void corridor_set();
+    void corridor_background_set();
     void corridor_doorleft_set();
     void corridor_doorright_set();
     void corridor_flower_set();
@@ -116,51 +112,57 @@ public:
     bool HandleEvent_Corridor_onnotionboard(const sf::Event::KeyPressed &key);
     bool HandleEvent_Corridor_ontoilotman(const sf::Event::KeyPressed &key);
     bool HandleEvent_Corridor_ontoilotwoman(const sf::Event::KeyPressed &key);
+    bool HandleEvent_Corridor_onclock(const sf::Event::KeyPressed &key);
+    // 判断是否相交
+    bool isplayerwithcorridor_doorleft();
+    bool isplayerwithcorridor_doorright();
+    bool isplayerwithcorridor_notionboard();
+    bool isplayerwithcorridor_toilotman();
+    bool isplayerwithcorridor_toilotwoman();
+    bool isplayerwithcorridor_stairleft();
+    bool isplayerwithcorridor_stairright();
+    bool isplayerwithcorridor_flower();
+    bool isplayerwithcorridor_flower_1();
+    bool isplayerwithcorridor_flower2();
+    bool isplayerwithcorridor_cabinet();
+    bool isplayerwithcorridor_cabinet_1();
+    bool isplayerwithcorridor_clock();
 
     void on_corridor_notion_board();
+    void on_corridor_clock();
     void on_corridor_stair_left();
     void on_corridor_stair_right();
 
     bool HandleEvent_Corridor_stairleft(const sf::Event::KeyPressed &key);
     bool HandleEvent_Corridor_stairright(const sf::Event::KeyPressed &key);
 
-    void corridor_update();
-    void corridor_draw(sf::RenderWindow &c_window);
-    void corridor_draw_2(sf::RenderWindow &c_window);
-
-    void rule_set();
+    void rule_background_set();
     void rule_player_reset();
-    void rule_update();
-    void rule_draw(sf::RenderWindow &c_window);
-    void rule_draw_2(sf::RenderWindow &c_window);
     void switch_RuleToCorridor();
     bool HandleEvent_Rule_on(const sf::Event::KeyPressed &key);
 
-    void on_rule();
-
-    void toilot_set();
+    void toilot_background_set();
     void toilot_door_set();
     void toilot_wash_basin_set();
     void toilot_mirror_set();
     void toilot_player_set();
     void switch_ToilotToCorridor();
     void switch_ToilotToMirror();
-    void toilot_update();
-    void toilot_draw(sf::RenderWindow &window);
-    void toilot_draw_2(sf::RenderWindow &window);
     bool HandleEvent_Toilot_ondoor(const sf::Event::KeyPressed &key);
     bool HandleEvent_Toilot_onmirror(const sf::Event::KeyPressed &key);
 
     void on_toilot_mirror();
 
-    void mirror_set();
+    void mirror_background_set();
     void mirror_player_reset();
     void mirror_text_set();
-    void mirror_update();
-    void mirror_draw(sf::RenderWindow &window);
-    void mirror_draw_2(sf::RenderWindow &window);
     void switch_MirrorToToilot();
     bool HandleEvent_Mirror_on(const sf::Event::KeyPressed &key);
+
+    bool isplayerwithtoilotdoor();
+    bool isplayerwithtoilotmirror();
+    bool isplayerwithtoilotwashbasin();
+    bool isplayerwithtoilotlid();
 
     void switchscene(SceneState newScene);
     void edge_check_left();

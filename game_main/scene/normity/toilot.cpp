@@ -6,13 +6,10 @@
  */
 #include "scene.hpp"
 
-void Scene::toilot_set()
+void Scene::toilot_background_set()
 {
     c_toilot.background_sprite.setPosition({0.f, 0.f});
     c_toilot.background_sprite.setScale({0.8f, 0.8f});
-    toilot_door_set();
-    toilot_wash_basin_set();
-    toilot_mirror_set();
 }
 
 void Scene::toilot_door_set()
@@ -53,26 +50,6 @@ void Scene::switch_ToilotToMirror()
     switchscene(SceneState::Mirror);
 }
 
-void Scene::toilot_update()
-{
-    // 处理厕所场景的更新逻辑
-    on_toilot_mirror();
-}
-
-void Scene::toilot_draw(sf::RenderWindow &c_window)
-{
-    c_window.draw(c_toilot.background_sprite);
-    c_window.draw(c_toilot.door_sprite);
-    c_window.draw(c_toilot.wash_basin_sprite);
-    c_window.draw(c_toilot.mirror_sprite);
-    c_window.draw(mirror_text);
-}
-
-void Scene::toilot_draw_2(sf::RenderWindow &c_window)
-{
-    // 默认不绘制任何内容
-}
-
 void Scene::on_toilot_mirror()
 {
     if (c_player.getGlobalBounds().contains(c_toilot.mirror_sprite.getGlobalBounds().getCenter()))
@@ -90,7 +67,7 @@ void Scene::on_toilot_mirror()
 
 bool Scene::HandleEvent_Toilot_ondoor(const sf::Event::KeyPressed &key)
 {
-    if (key.code == sf::Keyboard::Key::W && c_player.getGlobalBounds().contains(c_toilot.door_sprite.getGlobalBounds().getCenter()))
+    if (key.code == sf::Keyboard::Key::W)
     {
         switch_ToilotToCorridor();
         return true;
@@ -100,10 +77,30 @@ bool Scene::HandleEvent_Toilot_ondoor(const sf::Event::KeyPressed &key)
 
 bool Scene::HandleEvent_Toilot_onmirror(const sf::Event::KeyPressed &key)
 {
-    if (key.code == sf::Keyboard::Key::E && c_player.getGlobalBounds().contains(c_toilot.mirror_sprite.getGlobalBounds().getCenter()))
+    if (key.code == sf::Keyboard::Key::E)
     {
         switch_ToilotToMirror();
         return true;
     }
     return false;
+}
+
+bool Scene::isplayerwithtoilotmirror()
+{
+    return c_player.getGlobalBounds().contains(c_toilot.mirror_sprite.getGlobalBounds().getCenter());
+}
+
+bool Scene::isplayerwithtoilotdoor()
+{
+    return c_toilot.door_sprite.getGlobalBounds().contains(c_player.getPosition());
+}
+
+bool Scene::isplayerwithtoilotwashbasin()
+{
+    return c_toilot.wash_basin_sprite.getGlobalBounds().contains(c_player.getPosition());
+}
+
+bool Scene::isplayerwithtoilotlid()
+{
+    return c_player.getPosition().x >= 1217.82;
 }

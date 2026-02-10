@@ -6,23 +6,11 @@
  */
 #include "scene.hpp"
 
-void Scene::corridor_set()
+void Scene::corridor_background_set()
 {
     // 设置走廊场景初始状态
     c_corridor.background_sprite.setPosition({0.f, 0.f});
     c_corridor.background_sprite.setScale({0.8f, 0.8f});
-
-    corridor_doorleft_set();
-    corridor_doorright_set();
-    corridor_flower_set();
-    corridor_flower_1_set();
-    corridor_flower2_set();
-    corridor_cabinet_set();
-    corridor_cabinet_1_set();
-    corridor_notion_board_set();
-    corridor_clock_set();
-    corridor_toilotman_set();
-    corridor_toilotwoman_set();
 }
 
 void Scene::corridor_doorleft_set()
@@ -140,7 +128,7 @@ void Scene::corridor_player_set_fromtoilotwoman()
 
 void Scene::on_corridor_notion_board()
 {
-    if (c_player.getGlobalBounds().findIntersection(c_corridor.notion_board_sprite.getGlobalBounds()))
+    if (c_player.getGlobalBounds().findIntersection(c_corridor.notion_board_sprite.getGlobalBounds()).has_value())
     {
         notion_board_text.setString(L"E键查看公告栏");
         notion_board_text.setPosition(c_corridor.notion_board_sprite.getPosition() + sf::Vector2f(-130.f, -150.f));
@@ -169,34 +157,19 @@ void Scene::on_corridor_stair_right()
     }
 }
 
-void Scene::corridor_update()
+void Scene::on_corridor_clock()
 {
-    on_corridor_notion_board();
-    on_corridor_stair_left();
-    on_corridor_stair_right();
-}
-
-void Scene::corridor_draw(sf::RenderWindow &c_window)
-{
-    // 绘制走廊背景
-    c_window.draw(c_corridor.background_sprite);
-    c_window.draw(c_corridor.door_left_sprite);
-    c_window.draw(c_corridor.door_right_sprite);
-    c_window.draw(c_corridor.clock_sprite);
-    c_window.draw(c_corridor.notion_board_sprite);
-    c_window.draw(c_corridor.flower_sprite);
-    c_window.draw(c_corridor.flower_1_sprite);
-    c_window.draw(c_corridor.flower2_sprite);
-    c_window.draw(c_corridor.cabinet_sprite);
-    c_window.draw(c_corridor.cabinet_1_sprite);
-    c_window.draw(c_corridor.toilotman_sprite);
-    c_window.draw(c_corridor.toilotwoman_sprite);
-    c_window.draw(notion_board_text);
-}
-
-void Scene::corridor_draw_2(sf::RenderWindow &c_window)
-{
-    // 默认不绘制任何内容
+    if (c_corridor.clock_sprite.getGlobalBounds().contains(c_player.getPosition() + sf::Vector2f(0.f, -324.f)))
+    {
+        clock_text.setString(L"E键查看时钟");
+        clock_text.setPosition(c_corridor.clock_sprite.getPosition() + sf::Vector2f(-100.f, -150.f));
+        clock_text.setCharacterSize(40);
+        clock_text.setFillColor(sf::Color::White);
+    }
+    else
+    {
+        clock_text.setString(L"");
+    }
 }
 
 void Scene::switch_CorridorToRule()
@@ -220,11 +193,8 @@ bool Scene::HandleEvent_Corridor_ondoorleft(const sf::Event::KeyPressed &key)
 {
     if (key.code == sf::Keyboard::Key::W)
     {
-        if (c_corridor.door_left_sprite.getGlobalBounds().contains(c_player.getPosition()))
-        {
-            switch_CorridorToClassroom();
-            return true;
-        }
+        switch_CorridorToClassroom();
+        return true;
     }
     return false;
 }
@@ -233,11 +203,8 @@ bool Scene::HandleEvent_Corridor_ondoorright(const sf::Event::KeyPressed &key)
 {
     if (key.code == sf::Keyboard::Key::W)
     {
-        if (c_corridor.door_right_sprite.getGlobalBounds().contains(c_player.getPosition()))
-        {
-            player_text(L"这里好像上锁了");
-            return true;
-        }
+        player_text(L"这里好像上锁了");
+        return true;
     }
     return false;
 }
@@ -246,11 +213,8 @@ bool Scene::HandleEvent_Corridor_onnotionboard(const sf::Event::KeyPressed &key)
 {
     if (key.code == sf::Keyboard::Key::E)
     {
-        if (c_corridor.notion_board_sprite.getGlobalBounds().findIntersection(c_player.getGlobalBounds()))
-        {
-            switch_CorridorToRule();
-            return true;
-        }
+        switch_CorridorToRule();
+        return true;
     }
     return false;
 }
@@ -259,11 +223,8 @@ bool Scene::HandleEvent_Corridor_ontoilotman(const sf::Event::KeyPressed &key)
 {
     if (key.code == sf::Keyboard::Key::W)
     {
-        if (c_corridor.toilotman_sprite.getGlobalBounds().contains(c_player.getPosition()))
-        {
-            player_text(L"我似乎不应该进去...");
-            return true;
-        }
+        player_text(L"我似乎不应该进去...");
+        return true;
     }
     return false;
 }
@@ -272,11 +233,8 @@ bool Scene::HandleEvent_Corridor_ontoilotwoman(const sf::Event::KeyPressed &key)
 {
     if (key.code == sf::Keyboard::Key::W)
     {
-        if (c_corridor.toilotwoman_sprite.getGlobalBounds().contains(c_player.getPosition()))
-        {
-            switch_CorridorToToilot();
-            return true;
-        }
+        switch_CorridorToToilot();
+        return true;
     }
     return false;
 }
@@ -285,11 +243,8 @@ bool Scene::HandleEvent_Corridor_stairleft(const sf::Event::KeyPressed &key)
 {
     if (key.code == sf::Keyboard::Key::W)
     {
-        if (c_player.getPosition().x <= 351.355f)
-        {
-            answer = 1;
-            return true;
-        }
+        answer = 1;
+        return true;
     }
     return false;
 }
@@ -298,11 +253,83 @@ bool Scene::HandleEvent_Corridor_stairright(const sf::Event::KeyPressed &key)
 {
     if (key.code == sf::Keyboard::Key::W)
     {
-        if (c_player.getPosition().x >= 6805.22f)
-        {
-            answer = 2;
-            return true;
-        }
+        answer = 2;
+        return true;
     }
     return false;
+}
+
+bool Scene::HandleEvent_Corridor_onclock(sf::Event::KeyPressed const &key)
+{
+    if (key.code == sf::Keyboard::Key::E)
+    {
+        player_text(L"时钟静止不动...\n时针停在了" + std::to_wstring(statistics_levels) + L"点的位置...");
+        return true;
+    }
+    return false;
+}
+
+bool Scene::isplayerwithcorridor_doorleft()
+{
+    return c_corridor.door_left_sprite.getGlobalBounds().contains(c_player.getPosition());
+}
+
+bool Scene::isplayerwithcorridor_doorright()
+{
+    return c_corridor.door_right_sprite.getGlobalBounds().contains(c_player.getPosition());
+}
+
+bool Scene::isplayerwithcorridor_notionboard()
+{
+    return c_corridor.notion_board_sprite.getGlobalBounds().findIntersection(c_player.getGlobalBounds()).has_value();
+}
+
+bool Scene::isplayerwithcorridor_toilotman()
+{
+    return c_corridor.toilotman_sprite.getGlobalBounds().contains(c_player.getPosition());
+}
+
+bool Scene::isplayerwithcorridor_toilotwoman()
+{
+    return c_corridor.toilotwoman_sprite.getGlobalBounds().contains(c_player.getPosition());
+}
+
+bool Scene::isplayerwithcorridor_stairleft()
+{
+    return c_player.getPosition().x <= 351.355f;
+}
+
+bool Scene::isplayerwithcorridor_stairright()
+{
+    return c_player.getPosition().x >= 6805.22f;
+}
+
+bool Scene::isplayerwithcorridor_flower()
+{
+    return c_corridor.flower_sprite.getGlobalBounds().contains(c_player.getPosition());
+}
+
+bool Scene::isplayerwithcorridor_flower_1()
+{
+    return c_corridor.flower_1_sprite.getGlobalBounds().contains(c_player.getPosition());
+}
+
+bool Scene::isplayerwithcorridor_flower2()
+{
+    return c_corridor.flower2_sprite.getGlobalBounds().contains(c_player.getPosition());
+}
+
+bool Scene::isplayerwithcorridor_cabinet()
+{
+    return c_corridor.cabinet_sprite.getGlobalBounds().contains(c_player.getPosition());
+}
+
+bool Scene::isplayerwithcorridor_cabinet_1()
+{
+    return c_corridor.cabinet_1_sprite.getGlobalBounds().contains(c_player.getPosition());
+}
+
+bool Scene::isplayerwithcorridor_clock()
+{
+    return c_corridor.clock_sprite.getGlobalBounds().contains(c_player.getPosition() + sf::Vector2f(0.f, -324.f));
 }

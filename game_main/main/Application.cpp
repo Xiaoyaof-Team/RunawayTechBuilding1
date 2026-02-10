@@ -18,7 +18,6 @@ Application::Application() : c_window(sf::VideoMode({1920, 1080}), "RunawayTechb
     c_player.init();
     // SED::设置初始场景状态
     c_allAbnormity.currentAbnormity->scene_set();
-    c_allAbnormity.currentAbnormity->classroom_player_set_first();
 }
 
 // 检查程序是否运行

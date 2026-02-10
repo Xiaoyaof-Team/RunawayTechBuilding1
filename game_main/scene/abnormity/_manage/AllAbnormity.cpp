@@ -40,13 +40,13 @@ void AllAbnormity::setcurrentAbnormityIndex(int index)
 // 获取当前剩余关卡数
 int AllAbnormity::getstatistics_levels()
 {
-    return statistics_levels;
+    return p_s->statistics_levels;
 }
 
 // 设置当前剩余关卡数
 void AllAbnormity::setstatistics_levels(int levels)
 {
-    statistics_levels = levels;
+    p_s->statistics_levels = levels;
 }
 
 // 获得关卡随机数
@@ -88,7 +88,7 @@ void AllAbnormity::checkAnswer()
         {
             std::fill(hasvisited.begin(), hasvisited.end(), false);
             currentAbnormityIndex = 0;
-            statistics_levels = 13;
+            p_s->statistics_levels = 12;
             currentAbnormity = abnormityFactory[0]();
             p_s->answer = 0;
             currentAbnormity->switchscene(SceneState::Corridor);
@@ -108,7 +108,7 @@ void AllAbnormity::checkAnswer()
         {
             std::fill(hasvisited.begin(), hasvisited.end(), false);
             currentAbnormityIndex = 0;
-            statistics_levels = 13;
+            p_s->statistics_levels = 12;
             currentAbnormity = abnormityFactory[0]();
             p_s->answer = 0;
             currentAbnormity->switchscene(SceneState::Corridor);
@@ -149,7 +149,7 @@ void AllAbnormity::generateLevel()
     int newLevel = generateNewLevel();
     setcurrentAbnormityIndex(newLevel);
     currentAbnormity = abnormityFactory[newLevel]();
-    setstatistics_levels(statistics_levels - 1);
+    setstatistics_levels(p_s->statistics_levels - 1);
 }
 
 // 重置关卡
@@ -157,7 +157,7 @@ void AllAbnormity::resetLevel()
 {
     std::fill(hasvisited.begin(), hasvisited.end(), false);
     currentAbnormityIndex = 0;
-    statistics_levels = 13;
+    p_s->statistics_levels = 12;
     currentAbnormity = abnormityFactory[0]();
     p_s->answer = 0;
     currentAbnormity->corridor_player_set_fromstairleft();
