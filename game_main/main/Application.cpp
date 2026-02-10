@@ -49,12 +49,11 @@ void Application::Update()
     // 更新菜单状态前切换到 UI 视图
     c_window.setView(c_uiView);
     c_menu.Menu_update(c_window);
-    // 更新人物
-    c_player.checkState(c_menu.c_menuState.currentState, c_menu.c_menuState.lastState, c_window);
-    c_player.update(deltatime);
     // std::cout << "Player Position: " << c_player.getPosition().x << ", " << c_player.getPosition().y << std::endl;
     // 更新相机
     UpdateCamera();
+    c_player.checkState(c_menu.c_menuState.currentState, c_menu.c_menuState.lastState, c_window);
+    c_player.update(deltatime);
     // SED::更新场景状态
     c_allAbnormity.checkAnswer();
     c_allAbnormity.currentAbnormity->scene_update();
