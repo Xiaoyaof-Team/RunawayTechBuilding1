@@ -215,6 +215,17 @@ void Menu::handle_setting_change(const sf::Event::MouseButtonPressed &mouse, sf:
         // 切换鼠标跟随视角设置
         // SED: 我想加一个视角动画，让视角有一定跟手效果
     }
+    else if (Setting_isSkipBeginText.getGlobalBounds().contains(mousePos))
+    {
+        if (c_gameState.is_SkipBegin == L"是")
+        {
+            c_gameState.is_SkipBegin = L"否";
+        }
+        else
+        {
+            c_gameState.is_SkipBegin = L"是";
+        }
+    }
 }
 
 // SED: 悬停事件待处理

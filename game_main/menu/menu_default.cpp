@@ -68,10 +68,15 @@ void Menu::Menu_loadResources(GameStateMachine &c_gameState)
     Setting_isMousefollowText.setFillColor(sf::Color(255, 255, 255, 150));
     Setting_isMousefollowText.setPosition({30.f, 600.f});
 
+    Setting_isSkipBeginText.setString(L"跳过片头：" + c_gameState.is_SkipBegin);
+    Setting_isSkipBeginText.setCharacterSize(30);
+    Setting_isSkipBeginText.setFillColor(sf::Color(255, 255, 255, 150));
+    Setting_isSkipBeginText.setPosition({30.f, 670.f});
+
     Setting_BackText.setString(L"返回");
     Setting_BackText.setCharacterSize(30);
     Setting_BackText.setFillColor(sf::Color(255, 255, 255, 150));
-    Setting_BackText.setPosition({30.f, 670.f});
+    Setting_BackText.setPosition({30.f, 740.f});
 
     // 设置暂停菜单选项文本与位置
     Pause_ResumeText.setString(L"继续游戏");

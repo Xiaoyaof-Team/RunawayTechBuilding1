@@ -17,4 +17,5 @@ public:
     int zoom_Level = 1;                          // 相机缩放等级，默认1
     std::wstring is_MouseLeave_Pause = L"是";    // 是否鼠标离开屏幕，默认是
     std::wstring is_Mouse_Follow_Camera = L"是"; // 是否鼠标跟随相机，默认是
+    std::wstring is_SkipBegin = L"否";           // 是否跳过片头，默认否
 };

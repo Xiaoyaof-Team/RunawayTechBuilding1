@@ -8,6 +8,8 @@
 #include "player.hpp"
 #include <iostream>
 #include <SFML/System.hpp>
+#include <string>
+#include <SFML/Graphics.hpp>
 
 Player::Player()
     : position(0.0f, 0.0f),
@@ -19,7 +21,8 @@ Player::Player()
       sprite(textures[0]),
       scale(0.18f),
       moving(0),
-      playerState(0)
+      playerState(0),
+      text(typeface.Black)
 
 {
 
@@ -52,6 +55,8 @@ void Player::init()
     sprite.setPosition(position);
     sprite.setTexture(textures[4]);
     sprite.setScale({scale, scale});
+    text.setCharacterSize(40);           // 设置字符大小，单位为像素
+    text.setFillColor(sf::Color::White); // 设置填充颜色
 }
 
 void Player::draw(sf::RenderWindow &window)
@@ -61,6 +66,7 @@ void Player::draw(sf::RenderWindow &window)
 
 void Player::update(float deltaTime)
 {
+
     if (this->playerState == 1)
     {
         sf::Vector2f movement(0.f, 0.f);
@@ -114,6 +120,13 @@ void Player::update(float deltaTime)
             sprite.setTexture(textures[1]);
         }
     }
+    else if (playerState == 0)
+    {
+        position = {1327.82, 1023.02};
+        sprite.setPosition(position);
+        sprite.setTexture(textures[4]);
+        sprite.setScale({scale, scale});
+    }
 }
 
 void Player::startgame(sf::RenderWindow &window)
@@ -121,59 +134,77 @@ void Player::startgame(sf::RenderWindow &window)
     std::cout << playerState << std::endl;
     if (this->playerState == 5)
     {
-        position = {1327.82, 1023.02};
-
-        sprite.setTexture(textures[5]);
-
-        this->draw(window);
-        window.display();
-
-        sf::sleep(sf::seconds(2.0f));
+        window.clear(sf::Color::Black);
         sprite.setTexture(textures[4]);
         this->draw(window);
+        text.setPosition({1227.82, 1123.02});
+        text.setString(L"睡得好香……");
+        window.draw(text);
         window.display();
-
         sf::sleep(sf::seconds(2.0f));
+
+        window.clear(sf::Color::Black);
         sprite.setTexture(textures[5]);
         this->draw(window);
+        text.setPosition({1207.82, 1123.02});
+        text.setString(L"怎么这么黑啊？");
+        window.draw(text);
         window.display();
-
         sf::sleep(sf::seconds(2.0f));
-        // position = {1407.82, 1023.02};
-        sprite.setPosition(position);
-        this->draw(window);
-        window.display();
 
+        window.clear(sf::Color::Black);
+        sprite.setTexture(textures[4]);
+        this->draw(window);
+        text.setPosition({1227.82, 1123.02});
+        text.setString(L"几点了？");
+        window.draw(text);
+        window.display();
         sf::sleep(sf::seconds(2.0f));
-        // position = {1487.82, 1023.02};
-        sprite.setPosition(position);
+
+        window.clear(sf::Color::Black);
+        sprite.setTexture(textures[5]);
         this->draw(window);
+        text.setPosition({1027.82, 1123.02});
+        text.setString(L"不好！宿舍要熄灯了！得抓紧回去！");
+        window.draw(text);
         window.display();
 
-        sf::sleep(sf::seconds(2.0f));
-        // position = {1567.82, 1023.02};
-        sprite.setPosition(position);
-        this->draw(window);
-        window.display();
-
-        position = {1567.82, 1023.02};
-        sprite.setPosition(position);
-        this->playerState = 1;
+        sf::sleep(sf::seconds(4.0f));
     }
+    this->playerState = 1;
 }
 
-void Player::checkState(MenuState currentState, MenuState lastState, sf::RenderWindow &window)
+void Player::checkState(MenuState currentState, MenuState lastState, sf::RenderWindow &window, std::wstring skipBegin)
 {
-    if (static_cast<int>(currentState) == 0 && static_cast<int>(lastState) == 0 && this->playerState == 0)
+    // 现0，游戏中
+    if (static_cast<int>(currentState) == 0)
     {
-        this->playerState = 5;
-        Player::startgame(window);
+        // 开始游戏动画判断
+        if (this->playerState == 0)
+        {
+            if (skipBegin == L"否")
+            {
+                this->playerState = 5;
+                Player::startgame(window);
+            }
+            this->playerState = 1;
+        }
+        else
+        {
+            this->playerState = 1;
+        }
     }
+    // 现3，暂停中
+    else if (static_cast<int>(currentState) == 3)
+    {
+        this->playerState = 2;
+    }
+    // 还未开始
     else
     {
+        this->playerState = 0;
     }
-    // std::cout << "当前状态：" << static_cast<int>(currentState)
-    //           << " 上一次状态：" << static_cast<int>(lastState) << std::endl;
+    std::cout << "当前状态：" << static_cast<int>(currentState) << " 上一次状态：" << static_cast<int>(lastState) << " playerState:" << playerState << std::endl;
 }
 
 sf::Vector2f Player::getPosition() const

@@ -21,6 +21,7 @@ Menu::Menu(GameStateMachine &c_gameState, sf::View &c_camera) : c_gameState(c_ga
                                                                 Setting_zoomText(typeface.Bold),
                                                                 Setting_isMouseleaveText(typeface.Bold),
                                                                 Setting_isMousefollowText(typeface.Bold),
+                                                                Setting_isSkipBeginText(typeface.Bold),
                                                                 Setting_BackText(typeface.Bold),
                                                                 Pause_ResumeText(typeface.Bold),
                                                                 Pause_SettingText(typeface.Bold),
@@ -69,6 +70,7 @@ void Menu::Menu_draw(sf::RenderWindow &c_window)
         c_window.draw(Setting_zoomText);
         c_window.draw(Setting_isMouseleaveText);
         c_window.draw(Setting_isMousefollowText);
+        c_window.draw(Setting_isSkipBeginText);
         c_window.draw(Setting_BackText);
         break;
     case MenuState::Pause:
