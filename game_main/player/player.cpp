@@ -200,7 +200,7 @@ void Player::checkState(MenuState currentState, MenuState lastState, sf::RenderW
         this->playerState = 2;
     }
     // »¹Î´¿ªÊ¼
-    else
+    else if (static_cast<int>(currentState) == 1)
     {
         this->playerState = 0;
     }
