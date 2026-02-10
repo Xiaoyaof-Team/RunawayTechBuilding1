@@ -7,6 +7,8 @@
 
 #include "player.hpp"
 #include <iostream>
+#include <SFML/System.hpp>
+
 Player::Player()
     : position(0.0f, 0.0f),
       speed(500.0f),
@@ -16,7 +18,8 @@ Player::Player()
       textures(loadPlayerTextures()),
       sprite(textures[0]),
       scale(0.18f),
-      moving(0)
+      moving(0),
+      playerState(0)
 
 {
 
@@ -33,9 +36,8 @@ std::array<sf::Texture, 6> Player::loadPlayerTextures()
         !(temptextures[4].loadFromFile("game_main/picture/player/sleep.png")) ||
         !(temptextures[5].loadFromFile("game_main/picture/player/wakeup.png")))
     {
-        std::cerr << "加载失败！请检查文件路径！" << std::endl;
+        std::cerr << "角色图片加载失败！请检查文件路径！" << std::endl;
     }
-    std::cout << "加载成功！" << std::endl;
     return temptextures;
 }
 
@@ -46,7 +48,7 @@ void Player::init()
     auto size = sf::Vector2f(textures[0].getSize());
     sprite.setOrigin({size.x / 2.f, size.y / 2.f});
 
-    position = {950.0f, 670.0f};
+    position = {1327.82, 1023.02};
     sprite.setPosition(position);
     sprite.setTexture(textures[4]);
     sprite.setScale({scale, scale});
@@ -57,9 +59,9 @@ void Player::draw(sf::RenderWindow &window)
     window.draw(sprite);
 }
 
-void Player::update(float deltaTime, MenuState state)
+void Player::update(float deltaTime)
 {
-    if (state == MenuState::None)
+    if (this->playerState == 1)
     {
         sf::Vector2f movement(0.f, 0.f);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
@@ -112,6 +114,63 @@ void Player::update(float deltaTime, MenuState state)
             sprite.setTexture(textures[1]);
         }
     }
+}
+
+void Player::startgame(sf::RenderWindow &window)
+{
+    std::cout << playerState << std::endl;
+    if (this->playerState == 5)
+    {
+        position = {1327.82, 1023.02};
+
+        sprite.setTexture(textures[5]);
+        this->draw(window);
+        window.display();
+
+        sf::sleep(sf::seconds(2.0f));
+        sprite.setTexture(textures[4]);
+        this->draw(window);
+        window.display();
+
+        sf::sleep(sf::seconds(2.0f));
+        sprite.setTexture(textures[5]);
+        this->draw(window);
+        window.display();
+
+        sf::sleep(sf::seconds(2.0f));
+        position = {1407.82, 1023.02};
+        sprite.setPosition(position);
+        this->draw(window);
+        window.display();
+
+        sf::sleep(sf::seconds(2.0f));
+        position = {1487.82, 1023.02};
+        sprite.setPosition(position);
+        this->draw(window);
+        window.display();
+
+        sf::sleep(sf::seconds(2.0f));
+        position = {1567.82, 1023.02};
+        sprite.setPosition(position);
+        this->draw(window);
+        window.display();
+
+        this->playerState = 1;
+    }
+}
+
+void Player::checkState(MenuState currentState, MenuState lastState, sf::RenderWindow &window)
+{
+    if (static_cast<int>(currentState) == 0 && static_cast<int>(lastState) == 0 && this->playerState == 0)
+    {
+        this->playerState = 5;
+        Player::startgame(window);
+    }
+    else
+    {
+    }
+    // std::cout << "当前状态：" << static_cast<int>(currentState)
+    //           << " 上一次状态：" << static_cast<int>(lastState) << std::endl;
 }
 
 sf::Vector2f Player::getPosition() const

@@ -20,13 +20,16 @@ public:
     void init();
 
     // 角色计算
-    void update(float deltaTime, MenuState state);
+    void update(float deltaTime);
 
     // 角色更新
     void draw(sf::RenderWindow &window);
 
     // 绘制
     void display();
+
+    // 开始游戏动画
+    void startgame(sf::RenderWindow &window);
 
     // 获取位置
     sf::Vector2f getPosition() const;
@@ -45,6 +48,9 @@ public:
     void setDirection_left();
     void setDirection_right();
 
+    // 检测状态
+    void checkState(MenuState currentState, MenuState lastState, sf::RenderWindow &window);
+
 private:
     float speed;
     sf::Vector2f position;
@@ -57,6 +63,7 @@ private:
     float timing;
     float scale;
     int moving;
+    int playerState; // 游戏状态，0菜单界面，1游戏中，2暂停，3死亡，4胜利，5初始人物动画
 
 private:
     // 加载角色贴图

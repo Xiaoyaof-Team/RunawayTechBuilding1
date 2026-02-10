@@ -6,7 +6,7 @@
  */
 #include "menu.hpp"
 #include "type.hpp"
-#include "GameStateMachine.hpp"
+#include "Application.hpp"
 
 bool Menu::HandleEvent(const sf::Event::MouseButtonPressed &mouse, sf::RenderWindow &c_window)
 {
@@ -23,6 +23,7 @@ bool Menu::HandleEvent(const sf::Event::MouseButtonPressed &mouse, sf::RenderWin
         {
             // 点击开始游戏
             c_menuState.currentState = MenuState::None;
+
             return true;
         }
         else if (MainMenu_SettingText.getGlobalBounds().contains(mousePos))
@@ -146,7 +147,7 @@ void Menu::handle_setting_change(const sf::Event::MouseButtonPressed &mouse, sf:
         {
             c_window.create(sf::VideoMode(sf::Vector2u(1920, 1080)), "RunawayDUT353", sf::Style::Default);
             c_gameState.is_FullScreen = L"窗口化";
-            
+
             // 窗口化回归默认16:9，重置视口为全铺满
             c_camera.setViewport(sf::FloatRect({0.f, 0.f}, {1.f, 1.f}));
             c_window.setView(c_camera);

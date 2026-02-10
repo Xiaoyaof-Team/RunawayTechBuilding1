@@ -8,7 +8,7 @@
 #include "Application.hpp"
 #include <iostream>
 // 构造函数
-Application::Application() : c_window(sf::VideoMode({1920, 1080}), "RunawayDUT353"),
+Application::Application() : c_window(sf::VideoMode({1920, 1080}), "RunawayTechbuilding1"),
                              c_menu(c_gameState, c_camera),
                              c_scene(c_gameState, c_player),
                              c_gameState(),
@@ -50,10 +50,10 @@ void Application::Update()
     c_window.setView(c_uiView);
     c_menu.Menu_update(c_window);
     // 更新人物
-    c_player.update(deltatime, c_menu.c_menuState.currentState);
-    // SED::
+    c_player.checkState(c_menu.c_menuState.currentState, c_menu.c_menuState.lastState, c_window);
+    c_player.update(deltatime);
     // std::cout << "Player Position: " << c_player.getPosition().x << ", " << c_player.getPosition().y << std::endl;
-    //  更新相机
+    // 更新相机
     UpdateCamera();
     // SED::更新场景状态
     c_allAbnormity.checkAnswer();
