@@ -109,6 +109,17 @@ void Menu::Menu_UpdateText(GameStateMachine &c_gameState, sf::RenderWindow &c_wi
         Setting_isMousefollowText.setFillColor(sf::Color(255, 255, 255, 150));
     }
 
+    if (Setting_isSkipBeginText.getGlobalBounds().contains(mouse))
+    {
+        Setting_isSkipBeginText.setString(L"跳过片头：" + c_gameState.is_SkipBegin);
+        Setting_isSkipBeginText.setFillColor(sf::Color(255, 255, 255, 255));
+    }
+    else
+    {
+        Setting_isSkipBeginText.setString(L"跳过片头：" + c_gameState.is_SkipBegin);
+        Setting_isSkipBeginText.setFillColor(sf::Color(255, 255, 255, 150));
+    }
+
     if (Setting_BackText.getGlobalBounds().contains(mouse))
     {
         Setting_BackText.setString(L"返回");

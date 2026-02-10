@@ -52,7 +52,7 @@ void Application::Update()
     // std::cout << "Player Position: " << c_player.getPosition().x << ", " << c_player.getPosition().y << std::endl;
     // 更新相机
     UpdateCamera();
-    c_player.checkState(c_menu.c_menuState.currentState, c_menu.c_menuState.lastState, c_window);
+    c_player.checkState(c_menu.c_menuState.currentState, c_menu.c_menuState.lastState, c_window, c_menu.c_gameState.is_SkipBegin);
     c_player.update(deltatime);
     // SED::更新场景状态
     c_allAbnormity.checkAnswer();

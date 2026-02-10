@@ -38,6 +38,7 @@ private:
     sf::Text Setting_zoomText;
     sf::Text Setting_isMouseleaveText;
     sf::Text Setting_isMousefollowText;
+    sf::Text Setting_isSkipBeginText;
     sf::Text Setting_BackText;
     // 声明暂停菜单选项
     sf::Text Pause_ResumeText;

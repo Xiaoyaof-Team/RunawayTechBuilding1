@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include "menu.hpp"
+#include "type.hpp"
 class Player
 {
 public:
@@ -49,7 +50,7 @@ public:
     void setDirection_right();
 
     // 检测状态
-    void checkState(MenuState currentState, MenuState lastState, sf::RenderWindow &window);
+    void checkState(MenuState currentState, MenuState lastState, sf::RenderWindow &window, std::wstring skipBegin);
 
 private:
     float speed;
@@ -63,7 +64,8 @@ private:
     float timing;
     float scale;
     int moving;
-    int playerState; // 游戏状态，0菜单界面，1游戏中，2暂停，3死亡，4胜利，5初始人物动画
+    int playerState; // 游戏状态，0菜单界面，1游戏中，2暂停，3死亡，4胜利，5初始人物动画，6异常
+    sf::Text text;
 
 private:
     // 加载角色贴图
