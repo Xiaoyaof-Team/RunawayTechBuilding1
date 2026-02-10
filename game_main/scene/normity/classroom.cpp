@@ -24,8 +24,8 @@ void Scene::classroom_set_first()
 
 void Scene::classroom_player_set_first()
 {
-    c_player.setPosition({1527.82, 1023.02});
-    c_player.setDirection_left();
+    // 已经移动到player.cpp
+    // c_player.setPosition({1327.82, 1023.02});
 }
 
 void Scene::classroom_set()
