@@ -204,7 +204,7 @@ void Player::checkState(MenuState currentState, MenuState lastState, sf::RenderW
     {
         this->playerState = 0;
     }
-    std::cout << "当前状态：" << static_cast<int>(currentState) << " 上一次状态：" << static_cast<int>(lastState) << " playerState:" << playerState << std::endl;
+    // std::cout << "当前状态：" << static_cast<int>(currentState) << " 上一次状态：" << static_cast<int>(lastState) << " playerState:" << playerState << std::endl;
 }
 
 sf::Vector2f Player::getPosition() const

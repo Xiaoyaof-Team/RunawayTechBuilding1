@@ -5,7 +5,7 @@
  *@时间 ： 2026-2-6
  */
 #include "scene.hpp"
-
+#include <iostream>
 void Scene::corridor_background_set()
 {
     // 设置走廊场景初始状态
@@ -67,13 +67,6 @@ void Scene::corridor_notion_board_set()
     c_corridor.notion_board_sprite.setOrigin(c_corridor.notion_board_sprite.getLocalBounds().size / 2.f);
     c_corridor.notion_board_sprite.setPosition({660.649, 420.0});
     c_corridor.notion_board_sprite.setScale({0.58f, 0.58f});
-}
-
-void Scene::corridor_clock_set()
-{
-    c_corridor.clock_sprite.setOrigin(c_corridor.clock_sprite.getLocalBounds().size / 2.f);
-    c_corridor.clock_sprite.setPosition({3200.0, 320.0});
-    c_corridor.clock_sprite.setScale({0.55f, 0.55f});
 }
 
 void Scene::corridor_toilotman_set()

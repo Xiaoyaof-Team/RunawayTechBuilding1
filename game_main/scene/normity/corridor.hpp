@@ -13,7 +13,7 @@ public:
     sf::Texture background;
     sf::Texture door;
     sf::Texture door2;
-    sf::Texture clock;
+    std::array<sf::Texture, 13> clock;
     sf::Texture notion_board;
     sf::Texture flower;
     sf::Texture flower2;
@@ -35,24 +35,27 @@ public:
     sf::Sprite toilotwoman_sprite;
     sf::Sprite rule_sprite;
 
+public:
+    std::array<sf::Texture, 13> loadClockTextures();
+
 private:
 public:
     Corridor() : background("game_main/picture/scene/corridor/background.png"),
                  door("game_main/picture/scene/corridor/door.png"),
                  door2("game_main/picture/scene/corridor/door2.png"),
-                 clock("game_main/picture/scene/corridor/clock.png"),
+                 clock(loadClockTextures()),
                  notion_board("game_main/picture/scene/corridor/notionboard.png"),
                  flower("game_main/picture/scene/corridor/flower.png"),
                  flower2("game_main/picture/scene/corridor/flower2.png"),
                  cabinet("game_main/picture/scene/corridor/cabinet.png"),
                  toilotman("game_main/picture/scene/corridor/toilotman.png"),
                  toilotwoman("game_main/picture/scene/corridor/toilotwoman.png"),
-                 //SED:规则图片后续需要替换
+                 // SED:规则图片后续需要替换
                  rule("game_main/picture/scene/corridor/rule.png"),
                  background_sprite(background),
                  door_left_sprite(door),
                  door_right_sprite(door2),
-                 clock_sprite(clock),
+                 clock_sprite(clock[1]),
                  notion_board_sprite(notion_board),
                  flower_sprite(flower),
                  flower_1_sprite(flower),
