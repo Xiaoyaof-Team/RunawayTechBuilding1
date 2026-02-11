@@ -9,7 +9,7 @@
 
 void Abnormity::classroom_desk_set()
 {
-    classroom_background_set();
+    classroom_desk_background_set();
 }
 void Abnormity::classroom_desk_background_set() { p_s->classroom_desk_background_set(); }
 void Abnormity::classroom_desk_player_reset() { p_s->classroom_desk_player_reset(); }
