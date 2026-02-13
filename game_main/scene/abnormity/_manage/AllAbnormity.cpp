@@ -150,6 +150,10 @@ void AllAbnormity::generateLevel()
     setcurrentAbnormityIndex(newLevel);
     currentAbnormity = abnormityFactory[newLevel]();
     setstatistics_levels(p_s->statistics_levels - 1);
+    if (p_s->statistics_levels == 0)
+    {
+        resetLevel();
+    }
 }
 
 // ÖØÖÃ¹Ø¿¨

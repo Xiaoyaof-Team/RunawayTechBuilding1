@@ -7,7 +7,7 @@
 #include "scene.hpp"
 #include "GameStateMachine.hpp"
 
-int Scene::statistics_levels = 12; 
+int Scene::statistics_levels = 12;
 
 void Scene::switchscene(SceneState newScene)
 {

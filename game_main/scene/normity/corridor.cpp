@@ -83,6 +83,21 @@ void Scene::corridor_toilotwoman_set()
     c_corridor.toilotwoman_sprite.setScale({0.55f, 0.55f});
 }
 
+void Scene::corridor_exitdoor_set()
+{
+    if (statistics_levels == 1)
+    {
+        c_corridor.exitdoor_sprite.setOrigin(c_corridor.exitdoor_sprite.getLocalBounds().size / 2.f);
+        c_corridor.exitdoor_sprite.setPosition({5005.51, 449.794});
+        c_corridor.exitdoor_sprite.setScale({0.8f, 0.8f});
+    }
+    else
+    {
+        // 感觉这是最高效的办法哈哈
+        c_corridor.exitdoor_sprite.setScale({0.0f, 0.0f});
+    }
+}
+
 void Scene::corridor_player_set_fromstairleft()
 {
     c_player.setPosition({351.355, 644.794});
@@ -91,8 +106,8 @@ void Scene::corridor_player_set_fromstairleft()
 
 void Scene::corridor_player_set_fromstairright()
 {
-    c_player.setPosition({6805.22, 644.794});
-    c_player.setDirection_left();
+    c_player.setPosition({351.355, 644.794});
+    c_player.setDirection_right();
 }
 
 void Scene::corridor_player_set_fromclassroomleft()
@@ -147,6 +162,14 @@ void Scene::on_corridor_stair_right()
     if (c_player.getPosition().x >= 6805.22f)
     {
         player_text(L"...走这里吗?");
+    }
+}
+
+void Scene::on_corridor_exit_door()
+{
+    if (c_player.getGlobalBounds().findIntersection(c_corridor.exitdoor_sprite.getGlobalBounds()).has_value())
+    {
+        player_text(L"逃出去！");
     }
 }
 

@@ -21,6 +21,7 @@ public:
     sf::Texture toilotman;
     sf::Texture toilotwoman;
     sf::Texture rule;
+    sf::Texture exitdoor;
     sf::Sprite background_sprite;
     sf::Sprite door_left_sprite;
     sf::Sprite door_right_sprite;
@@ -34,6 +35,7 @@ public:
     sf::Sprite toilotman_sprite;
     sf::Sprite toilotwoman_sprite;
     sf::Sprite rule_sprite;
+    sf::Sprite exitdoor_sprite;
 
 public:
     std::array<sf::Texture, 13> loadClockTextures();
@@ -50,6 +52,7 @@ public:
                  cabinet("game_main/picture/scene/corridor/cabinet.png"),
                  toilotman("game_main/picture/scene/corridor/toilotman.png"),
                  toilotwoman("game_main/picture/scene/corridor/toilotwoman.png"),
+                 exitdoor("game_main/picture/scene/corridor/exitdoor.png"),
                  // SED:规则图片后续需要替换
                  rule("game_main/picture/scene/corridor/rule.png"),
                  background_sprite(background),
@@ -64,7 +67,8 @@ public:
                  cabinet_1_sprite(cabinet),
                  toilotman_sprite(toilotman),
                  toilotwoman_sprite(toilotwoman),
-                 rule_sprite(rule)
+                 rule_sprite(rule),
+                 exitdoor_sprite(exitdoor)
     {
     }
 

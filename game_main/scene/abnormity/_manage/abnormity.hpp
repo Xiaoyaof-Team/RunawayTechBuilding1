@@ -90,6 +90,7 @@ public:
     virtual void corridor_clock_set();
     virtual void corridor_toilotman_set();
     virtual void corridor_toilotwoman_set();
+    virtual void corridor_exitdoor_set();
     // 下面均在设置人物从不同位置进入走廊时的位置
     virtual void corridor_player_set_fromstairleft();
     virtual void corridor_player_set_fromstairright();
@@ -132,6 +133,8 @@ public:
     virtual void on_corridor_stair_left();
     // 与走廊交互的事件，用于生成交互提示文字
     virtual void on_corridor_stair_right();
+    // 与走廊交互的事件，用于生成交互提示文字
+    virtual void on_corridor_exit_door();
     // 增加大量空实现
     virtual void on_corridor_flower();
     virtual void on_corridor_flower_1();
