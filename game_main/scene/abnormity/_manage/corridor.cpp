@@ -21,6 +21,7 @@ void Abnormity::corridor_set()
     corridor_clock_set();
     corridor_toilotman_set();
     corridor_toilotwoman_set();
+    corridor_exitdoor_set();
 }
 void Abnormity::corridor_background_set() { p_s->corridor_background_set(); }
 void Abnormity::corridor_doorleft_set() { p_s->corridor_doorleft_set(); }
@@ -34,12 +35,14 @@ void Abnormity::corridor_notion_board_set() { p_s->corridor_notion_board_set(); 
 void Abnormity::corridor_clock_set() { p_s->corridor_clock_set(); }
 void Abnormity::corridor_toilotman_set() { p_s->corridor_toilotman_set(); }
 void Abnormity::corridor_toilotwoman_set() { p_s->corridor_toilotwoman_set(); }
+void Abnormity::corridor_exitdoor_set() { p_s->corridor_exitdoor_set(); }
 void Abnormity::corridor_player_set_fromstairleft() { p_s->corridor_player_set_fromstairleft(); }
 void Abnormity::corridor_player_set_fromstairright() { p_s->corridor_player_set_fromstairright(); }
 void Abnormity::corridor_player_set_fromclassroomleft() { p_s->corridor_player_set_fromclassroomleft(); }
 void Abnormity::corridor_player_set_fromclassroomright() { p_s->corridor_player_set_fromclassroomright(); }
 void Abnormity::corridor_player_set_fromtoilotman() { p_s->corridor_player_set_fromtoilotman(); }
 void Abnormity::corridor_player_set_fromtoilotwoman() { p_s->corridor_player_set_fromtoilotwoman(); }
+
 void Abnormity::switch_CorridorToRule()
 {
     p_s->switch_CorridorToRule();
@@ -87,6 +90,7 @@ bool Abnormity::HandleEvent_Corridor_ontoilotwoman(const sf::Event::KeyPressed &
 void Abnormity::on_corridor_notion_board() { p_s->on_corridor_notion_board(); }
 void Abnormity::on_corridor_stair_left() { p_s->on_corridor_stair_left(); }
 void Abnormity::on_corridor_stair_right() { p_s->on_corridor_stair_right(); }
+void Abnormity::on_corridor_exit_door() { p_s->on_corridor_exit_door(); }
 void Abnormity::on_corridor_flower()
 {
     // ¿ÕÊµÏÖ
@@ -177,6 +181,7 @@ void Abnormity::corridor_update()
     on_corridor_door_left();
     on_corridor_door_right();
     on_corridor_clock();
+    on_corridor_exit_door();
 }
 void Abnormity::corridor_draw(sf::RenderWindow &c_window)
 {
@@ -192,6 +197,7 @@ void Abnormity::corridor_draw(sf::RenderWindow &c_window)
     c_window.draw(p_s->c_corridor.cabinet_1_sprite);
     c_window.draw(p_s->c_corridor.toilotman_sprite);
     c_window.draw(p_s->c_corridor.toilotwoman_sprite);
+    c_window.draw(p_s->c_corridor.exitdoor_sprite);
     c_window.draw(p_s->notion_board_text);
     c_window.draw(p_s->clock_text);
 }

@@ -98,6 +98,7 @@ public:
     void corridor_clock_set();
     void corridor_toilotman_set();
     void corridor_toilotwoman_set();
+    void corridor_exitdoor_set();
     void corridor_player_set_fromstairleft();
     void corridor_player_set_fromstairright();
     void corridor_player_set_fromclassroomleft();
@@ -132,6 +133,7 @@ public:
     void on_corridor_clock();
     void on_corridor_stair_left();
     void on_corridor_stair_right();
+    void on_corridor_exit_door();
 
     bool HandleEvent_Corridor_stairleft(const sf::Event::KeyPressed &key);
     bool HandleEvent_Corridor_stairright(const sf::Event::KeyPressed &key);
