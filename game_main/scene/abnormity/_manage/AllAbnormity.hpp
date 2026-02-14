@@ -10,6 +10,8 @@
 #include <map>
 #include <vector>
 #include <random>
+
+class Menu;
 class Scene;
 class Abnormity;
 
@@ -35,7 +37,7 @@ public:
     int getRandomLevel(int min, int max);
     bool gethasvisited(int index);
     void sethasvisited(int index);
-    void checkAnswer();
+    void checkAnswer(Menu &c_menu);
     int generateNewLevel();
     void generateLevel();
     void resetLevel();

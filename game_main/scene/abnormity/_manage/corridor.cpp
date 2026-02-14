@@ -133,6 +133,7 @@ void Abnormity::on_corridor_clock()
 }
 bool Abnormity::HandleEvent_Corridor_stairleft(const sf::Event::KeyPressed &key) { return p_s->HandleEvent_Corridor_stairleft(key); }
 bool Abnormity::HandleEvent_Corridor_stairright(const sf::Event::KeyPressed &key) { return p_s->HandleEvent_Corridor_stairright(key); }
+bool Abnormity::HandleEvent_Corridor_exitdoor(const sf::Event::KeyPressed &key) { return p_s->HandleEvent_Corridor_exitdoor(key); }
 bool Abnormity::HandleEvent_Corridor_onflower(const sf::Event::KeyPressed &key)
 {
     // ¿ÕÊµÏÖ
@@ -210,6 +211,7 @@ bool Abnormity::isplayerwithcorridor_doorleft() { return p_s->isplayerwithcorrid
 bool Abnormity::isplayerwithcorridor_doorright() { return p_s->isplayerwithcorridor_doorright(); }
 bool Abnormity::isplayerwithcorridor_stairleft() { return p_s->isplayerwithcorridor_stairleft(); }
 bool Abnormity::isplayerwithcorridor_stairright() { return p_s->isplayerwithcorridor_stairright(); }
+bool Abnormity::isplayerwithcorridor_exitdoor() { return p_s->isplayerwithcorridor_exitdoor(); }
 bool Abnormity::isplayerwithcorridor_notionboard() { return p_s->isplayerwithcorridor_notionboard(); }
 bool Abnormity::isplayerwithcorridor_toilotman() { return p_s->isplayerwithcorridor_toilotman(); }
 bool Abnormity::isplayerwithcorridor_toilotwoman() { return p_s->isplayerwithcorridor_toilotwoman(); }

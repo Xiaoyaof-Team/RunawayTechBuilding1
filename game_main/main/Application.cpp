@@ -54,7 +54,7 @@ void Application::Update()
     c_player.checkState(c_menu.c_menuState.currentState, c_menu.c_menuState.lastState, c_window, c_menu.c_gameState.is_SkipBegin);
     c_player.update(deltatime);
     // SED::¸üÐÂ³¡¾°×´Ì¬
-    c_allAbnormity.checkAnswer();
+    c_allAbnormity.checkAnswer(c_menu);
     c_allAbnormity.currentAbnormity->scene_update();
 }
 

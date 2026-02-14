@@ -13,6 +13,7 @@ enum class MenuState
     Setting = 2,
     Pause = 3,
     Over = 4,
+    Win = 5,
 };
 
 class MenuStateMachine

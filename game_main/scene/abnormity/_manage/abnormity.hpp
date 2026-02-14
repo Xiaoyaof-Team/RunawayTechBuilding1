@@ -121,6 +121,7 @@ public:
     virtual bool isplayerwithcorridor_toilotwoman();
     virtual bool isplayerwithcorridor_stairleft();
     virtual bool isplayerwithcorridor_stairright();
+    virtual bool isplayerwithcorridor_exitdoor();
     virtual bool isplayerwithcorridor_flower();
     virtual bool isplayerwithcorridor_flower_1();
     virtual bool isplayerwithcorridor_flower2();
@@ -150,6 +151,7 @@ public:
     // 与走廊交互的事件，默认按下W键交互，交互成功更改answer值用于实现楼梯左右选择是否正确
     virtual bool HandleEvent_Corridor_stairleft(const sf::Event::KeyPressed &key);
     virtual bool HandleEvent_Corridor_stairright(const sf::Event::KeyPressed &key);
+    virtual bool HandleEvent_Corridor_exitdoor(const sf::Event::KeyPressed &key);
     // 走廊场景的更新，调用所有on_开头的函数
     virtual void corridor_update();
     virtual void corridor_draw(sf::RenderWindow &c_window);

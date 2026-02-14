@@ -105,6 +105,17 @@ void Menu::Menu_loadResources(GameStateMachine &c_gameState)
     Over_ExitText.setFillColor(sf::Color(255, 255, 255, 150));
     Over_ExitText.setPosition({30.f, 400.f});
 
+    // 设置游戏胜利菜单选项文本与位置
+    Win_RestartText.setString(L"再开一把");
+    Win_RestartText.setCharacterSize(40);
+    Win_RestartText.setFillColor(sf::Color(255, 255, 255, 150));
+    Win_RestartText.setPosition({30.f, 300.f});
+
+    Win_ExitText.setString(L"不玩了，退出");
+    Win_ExitText.setCharacterSize(40);
+    Win_ExitText.setFillColor(sf::Color(255, 255, 255, 150));
+    Win_ExitText.setPosition({30.f, 400.f});
+
     backgroundSprite.setTexture(backgroundTexture, true);
     backgroundSprite.setScale({1.25f, 1.054f}); // 加上大括号，变成一个 Vector2f
 }
