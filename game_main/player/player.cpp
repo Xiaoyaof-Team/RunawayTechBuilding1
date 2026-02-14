@@ -13,7 +13,7 @@
 
 Player::Player()
     : position(0.0f, 0.0f),
-      speed(1500.0f),
+      speed(500.0f),
       timing(0.0f),
       changeTime(0.2f),
       currentFrame(1),
@@ -145,7 +145,7 @@ void Player::update(float deltaTime)
 
 void Player::startgame(sf::RenderWindow &window)
 {
-    std::cout << playerState << std::endl;
+    // std::cout << playerState << std::endl;
     if (this->playerState == 5)
     {
         window.clear(sf::Color::Black);
@@ -223,7 +223,7 @@ void Player::checkState(MenuState currentState, MenuState lastState, sf::RenderW
     {
         this->playerState = 0;
     }
-    std::cout << "当前状态：" << static_cast<int>(currentState) << " 上一次状态：" << static_cast<int>(lastState) << " playerState:" << playerState << std::endl;
+    // std::cout << "当前状态：" << static_cast<int>(currentState) << " 上一次状态：" << static_cast<int>(lastState) << " playerState:" << playerState << std::endl;
 }
 
 sf::Vector2f Player::getPosition() const
