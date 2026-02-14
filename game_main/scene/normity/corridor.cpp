@@ -93,7 +93,7 @@ void Scene::corridor_exitdoor_set()
     }
     else
     {
-        // 感觉这是最高效的办法哈哈
+        // 感觉这是最高效的办法
         c_corridor.exitdoor_sprite.setScale({0.0f, 0.0f});
     }
 }
@@ -275,6 +275,16 @@ bool Scene::HandleEvent_Corridor_stairright(const sf::Event::KeyPressed &key)
     return false;
 }
 
+bool Scene::HandleEvent_Corridor_exitdoor(const sf::Event::KeyPressed &key)
+{
+    if (key.code == sf::Keyboard::Key::W)
+    {
+        answer = 3;
+        return true;
+    }
+    return false;
+}
+
 bool Scene::HandleEvent_Corridor_onclock(sf::Event::KeyPressed const &key)
 {
     if (key.code == sf::Keyboard::Key::E)
@@ -318,6 +328,11 @@ bool Scene::isplayerwithcorridor_stairleft()
 bool Scene::isplayerwithcorridor_stairright()
 {
     return c_player.getPosition().x >= 6805.22f;
+}
+
+bool Scene::isplayerwithcorridor_exitdoor()
+{
+    return c_corridor.exitdoor_sprite.getGlobalBounds().contains(c_player.getPosition());
 }
 
 bool Scene::isplayerwithcorridor_flower()

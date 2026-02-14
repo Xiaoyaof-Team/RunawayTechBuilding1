@@ -47,6 +47,9 @@ private:
     // 声明游戏结束菜单选项
     sf::Text Over_RestartText;
     sf::Text Over_ExitText;
+    // 声明游戏胜利菜单选项
+    sf::Text Win_RestartText;
+    sf::Text Win_ExitText;
 
 public:
     Menu(GameStateMachine &c_gameState, sf::View &c_camera);

@@ -9,6 +9,7 @@
 #include "scene.hpp"
 #include <random>
 #include "normal.hpp"
+#include "Application.hpp"
 #include "1.ClassroomWithManything/ClassroomwithManything.hpp"
 
 AllAbnormity::AllAbnormity(Scene *scene) : p_s(scene), gen(rd())
@@ -69,7 +70,7 @@ void AllAbnormity::sethasvisited(int index)
 }
 
 // 判断是否正确，是则生成新关卡，否则重置当前关卡
-void AllAbnormity::checkAnswer()
+void AllAbnormity::checkAnswer(Menu &c_menu)
 {
     switch (p_s->answer)
     {
@@ -103,6 +104,26 @@ void AllAbnormity::checkAnswer()
             p_s->answer = 0;
             currentAbnormity->switchscene(SceneState::Corridor);
             currentAbnormity->corridor_player_set_fromstairright();
+        }
+        else
+        {
+            std::fill(hasvisited.begin(), hasvisited.end(), false);
+            currentAbnormityIndex = 0;
+            p_s->statistics_levels = 12;
+            currentAbnormity = abnormityFactory[0]();
+            p_s->answer = 0;
+            currentAbnormity->switchscene(SceneState::Corridor);
+            currentAbnormity->corridor_player_set_fromstairright();
+        }
+        break;
+
+    case 3:
+        if (p_s->statistics_levels == 1)
+        {
+            // 游戏胜利
+            p_s->answer = 0;
+            currentAbnormity->switchscene(SceneState::Classroom);
+            c_menu.c_menuState.currentState = MenuState::Win;
         }
         else
         {

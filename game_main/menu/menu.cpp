@@ -27,7 +27,9 @@ Menu::Menu(GameStateMachine &c_gameState, sf::View &c_camera) : c_gameState(c_ga
                                                                 Pause_SettingText(typeface.Bold),
                                                                 Pause_ExitText(typeface.Bold),
                                                                 Over_RestartText(typeface.Bold),
-                                                                Over_ExitText(typeface.Bold)
+                                                                Over_ExitText(typeface.Bold),
+                                                                Win_ExitText(typeface.Bold),
+                                                                Win_RestartText(typeface.Bold)
 {
     Menu_loadResources(c_gameState);
 }
@@ -87,6 +89,12 @@ void Menu::Menu_draw(sf::RenderWindow &c_window)
         c_window.draw(titleText);
         c_window.draw(Over_RestartText);
         c_window.draw(Over_ExitText);
+        break;
+    case MenuState::Win:
+        c_window.draw(backgroundSprite);
+        c_window.draw(titleText);
+        c_window.draw(Win_RestartText);
+        c_window.draw(Win_ExitText);
         break;
     default:
         break;

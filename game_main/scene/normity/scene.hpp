@@ -122,6 +122,7 @@ public:
     bool isplayerwithcorridor_toilotwoman();
     bool isplayerwithcorridor_stairleft();
     bool isplayerwithcorridor_stairright();
+    bool isplayerwithcorridor_exitdoor();
     bool isplayerwithcorridor_flower();
     bool isplayerwithcorridor_flower_1();
     bool isplayerwithcorridor_flower2();
@@ -137,6 +138,7 @@ public:
 
     bool HandleEvent_Corridor_stairleft(const sf::Event::KeyPressed &key);
     bool HandleEvent_Corridor_stairright(const sf::Event::KeyPressed &key);
+    bool HandleEvent_Corridor_exitdoor(const sf::Event::KeyPressed &key);
 
     void rule_background_set();
     void rule_player_reset();

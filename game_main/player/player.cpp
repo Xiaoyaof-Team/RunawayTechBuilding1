@@ -13,7 +13,7 @@
 
 Player::Player()
     : position(0.0f, 0.0f),
-      speed(500.0f),
+      speed(1500.0f),
       timing(0.0f),
       changeTime(0.2f),
       currentFrame(1),
@@ -66,9 +66,11 @@ void Player::draw(sf::RenderWindow &window)
 
 void Player::update(float deltaTime)
 {
-
-    if (this->playerState == 1)
+    switch (playerState)
     {
+    case 1:
+    {
+
         sf::Vector2f movement(0.f, 0.f);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
             movement.x -= 1.f;
@@ -119,13 +121,25 @@ void Player::update(float deltaTime)
             moving = 0;
             sprite.setTexture(textures[1]);
         }
+        break;
     }
-    else if (playerState == 0)
+    case 0:
     {
+
         position = {1327.82, 1023.02};
         sprite.setPosition(position);
         sprite.setTexture(textures[4]);
         sprite.setScale({scale, scale});
+        break;
+    }
+    case 4:
+    {
+        position = {1327.82, 1023.02};
+        sprite.setPosition(position);
+        sprite.setTexture(textures[3]);
+        sprite.setScale({scale, scale});
+        break;
+    }
     }
 }
 
@@ -199,12 +213,17 @@ void Player::checkState(MenuState currentState, MenuState lastState, sf::RenderW
     {
         this->playerState = 2;
     }
+    // 现5，游戏结束
+    else if (static_cast<int>(currentState) == 5)
+    {
+        this->playerState = 4;
+    }
     // 还未开始
     else if (static_cast<int>(currentState) == 1)
     {
         this->playerState = 0;
     }
-    // std::cout << "当前状态：" << static_cast<int>(currentState) << " 上一次状态：" << static_cast<int>(lastState) << " playerState:" << playerState << std::endl;
+    std::cout << "当前状态：" << static_cast<int>(currentState) << " 上一次状态：" << static_cast<int>(lastState) << " playerState:" << playerState << std::endl;
 }
 
 sf::Vector2f Player::getPosition() const

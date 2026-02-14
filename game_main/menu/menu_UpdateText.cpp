@@ -187,4 +187,27 @@ void Menu::Menu_UpdateText(GameStateMachine &c_gameState, sf::RenderWindow &c_wi
         Over_ExitText.setString(L"说了！退出！！");
         Over_ExitText.setFillColor(sf::Color(255, 255, 255, 150));
     }
+
+    // 设置游戏胜利菜单选项文本与位置
+    if (Win_RestartText.getGlobalBounds().contains(mouse))
+    {
+        Win_RestartText.setString(L"再开一把");
+        Win_RestartText.setFillColor(sf::Color(255, 255, 255, 255));
+    }
+    else
+    {
+        Win_RestartText.setString(L"再开一把");
+        Win_RestartText.setFillColor(sf::Color(255, 255, 255, 150));
+    }
+
+    if (Win_ExitText.getGlobalBounds().contains(mouse))
+    {
+        Win_ExitText.setString(L"不玩了，退出");
+        Win_ExitText.setFillColor(sf::Color(255, 255, 255, 255));
+    }
+    else
+    {
+        Win_ExitText.setString(L"不玩了，退出");
+        Win_ExitText.setFillColor(sf::Color(255, 255, 255, 150));
+    }
 }

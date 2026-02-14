@@ -124,9 +124,9 @@ bool Abnormity::HandleEvent(const sf::Event::KeyPressed &key)
     switch (p_s->currentSceneState)
     {
     case SceneState::Classroom:
-        if (isplayerwithclassroom_desk()  && HandleEvent_Classroom_ondesk(key))
+        if (isplayerwithclassroom_desk() && HandleEvent_Classroom_ondesk(key))
             return true;
-        if (isplayerwithclassroom_door()  && HandleEvent_Classroom_ondoor(key))
+        if (isplayerwithclassroom_door() && HandleEvent_Classroom_ondoor(key))
             return true;
         break;
     case SceneState::Classroom_desk:
@@ -147,6 +147,8 @@ bool Abnormity::HandleEvent(const sf::Event::KeyPressed &key)
         if (isplayerwithcorridor_stairleft() && HandleEvent_Corridor_stairleft(key))
             return true;
         if (isplayerwithcorridor_stairright() && HandleEvent_Corridor_stairright(key))
+            return true;
+        if (isplayerwithcorridor_exitdoor() && HandleEvent_Corridor_exitdoor(key))
             return true;
         if (isplayerwithcorridor_flower() && HandleEvent_Corridor_onflower(key))
             return true;

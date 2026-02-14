@@ -91,6 +91,21 @@ bool Menu::HandleEvent(const sf::Event::MouseButtonPressed &mouse, sf::RenderWin
             return true;
         }
         break;
+    case MenuState::Win:
+        if (Win_RestartText.getGlobalBounds().contains(mousePos))
+        {
+            // 点击开始游戏
+            c_menuState.currentState = MenuState::None;
+            return true;
+        }
+        else if (Win_ExitText.getGlobalBounds().contains(mousePos))
+        {
+            // 点击回到主菜单
+            c_menuState.currentState = MenuState::MainMenu;
+            return true;
+        }
+        break;
+
     default:
         break;
     }
