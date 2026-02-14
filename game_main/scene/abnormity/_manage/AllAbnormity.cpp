@@ -11,6 +11,7 @@
 #include "normal.hpp"
 #include "Application.hpp"
 #include "1.ClassroomWithManything/ClassroomwithManything.hpp"
+#include "3.CorridorWithWrongBoard/CorridorWithWrongBoard.hpp"
 
 AllAbnormity::AllAbnormity(Scene *scene) : p_s(scene), gen(rd())
 {
@@ -19,6 +20,10 @@ AllAbnormity::AllAbnormity(Scene *scene) : p_s(scene), gen(rd())
     { return std::make_unique<Normal>(p_s); };
     abnormityFactory[1] = [this]()
     { return std::make_unique<ClassroomWithManything>(p_s); };
+    abnormityFactory[2] = [this]()
+    { return std::make_unique<ClassroomWithManything>(p_s); };
+    abnormityFactory[3] = [this]()
+    { return std::make_unique<CorridorWithWrongBoard>(p_s); };
 
     // 初始化hasvisited向量，默认所有异常都未出现过
     // 默认初始异常为Normal
@@ -142,7 +147,7 @@ void AllAbnormity::checkAnswer(Menu &c_menu)
 // 生成新的随机数关卡、
 int AllAbnormity::generateNewLevel()
 {
-    // return 1; // 测试用，直接返回对应关卡
+    // return 3; // 测试用，直接返回对应关卡
     int n = 0;
     while (1)
     {
